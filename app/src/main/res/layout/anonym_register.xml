@@ -5,9 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
-
     <!-- MV_002 | Registrar Usuario -->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBar"
+                android:id="@+id/btnTopAppBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="?attr/actionBarSize"
@@ -41,13 +39,14 @@
             android:layout_marginBottom="30dp"
             android:hint="Correo/teléfono">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/new_password"
+            android:id="@+id/input_password"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             app:endIconMode="password_toggle"
@@ -57,6 +56,7 @@
             android:hint="Contraseña">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
@@ -64,7 +64,7 @@
 
         <!-- Diseno del campo de contrasena -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/new_password2"
+            android:id="@+id/input_password2"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             app:endIconMode="password_toggle"
@@ -73,6 +73,7 @@
             android:hint="Repetir Contraseña">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />

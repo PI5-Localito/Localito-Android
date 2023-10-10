@@ -19,7 +19,7 @@
             android:layout_height="wrap_content">
 
             <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topAppBar"
+                android:id="@+id/btnTopAppBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="?attr/actionBarSize"
@@ -48,6 +48,7 @@
 
         <!-- Diseno del campo de contrasena -->
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_password"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="165dp"
@@ -56,6 +57,7 @@
             app:errorContentDescription="content_description_start_icon">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
