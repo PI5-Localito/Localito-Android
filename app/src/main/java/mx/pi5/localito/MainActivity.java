@@ -7,7 +7,6 @@ import mx.pi5.localito.layouts.HeaderView;
 
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.app.Application;
 import com.google.android.material.color.DynamicColors;
 
@@ -33,19 +32,5 @@ public class MainActivity extends AppCompatActivity {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-=======
-import android.widget.Button;
-import android.widget.TextView;
-
-public class MainActivity extends AppCompatActivity {
-
-    Intent i;
-    Button to_login, to_register;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.anonym_register);
-
->>>>>>> miguel
     }
 }
