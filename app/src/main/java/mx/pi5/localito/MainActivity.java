@@ -27,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void startView(String nombre){
         try {
-            i = new Intent(MainActivity.this, Class.forName(nombre));
+            String packageName = getPackageName();
+            String className = packageName + ".auth." + nombre; //Construye el nombre completo de la clase
+            i = new Intent(MainActivity.this, Class.forName(className));
             startActivity(i);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
