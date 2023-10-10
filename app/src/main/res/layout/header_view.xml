@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="15dp"
-        android:backgroundTint="@color/md_theme_light_primary">
+        android:backgroundTint="@color/seed">
 
         <com.google.android.material.search.SearchBar
             android:id="@+id/search_bar"
@@ -51,7 +51,6 @@
                     android:text="Popular" />
             </com.google.android.material.tabs.TabLayout>
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
