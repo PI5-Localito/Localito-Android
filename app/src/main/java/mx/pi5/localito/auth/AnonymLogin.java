@@ -7,7 +7,7 @@ import android.os.Bundle;
 import mx.pi5.localito.R;
 import mx.pi5.localito.databinding.ActivityMainBinding;
 
-public class AnonyLogin extends AppCompatActivity {
+public class AnonymLogin extends AppCompatActivity {
     ActivityMainBinding b;
     Intent i;
     @Override
