@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Localito"
         tools:targetApi="31">
         <activity
-            android:name=".auth.anonym_register"
+            android:name=".auth.AnonymRegister"
             android:exported="false" />
         <activity
-            android:name=".auth.anonym_login"
+            android:name=".auth.AnonymLogin"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

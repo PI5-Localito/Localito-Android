@@ -6,9 +6,8 @@ import android.os.Bundle;
 
 import mx.pi5.localito.R;
 import mx.pi5.localito.databinding.ActivityMainBinding;
-import  mx.pi5.localito.auth.anonym_register;
 
-public class anonym_register extends AppCompatActivity {
+public class AnonyLogin extends AppCompatActivity {
     ActivityMainBinding b;
     Intent i;
     @Override
