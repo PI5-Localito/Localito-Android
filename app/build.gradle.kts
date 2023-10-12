@@ -6,6 +6,10 @@ android {
     namespace = "mx.pi5.localito"
     compileSdk = 33
 
+    viewBinding {
+        enable = true
+    }
+
     defaultConfig {
         applicationId = "mx.pi5.localito"
         minSdk = 24

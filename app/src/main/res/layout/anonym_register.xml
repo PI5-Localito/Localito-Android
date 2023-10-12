@@ -4,10 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".auth.anonym_login">
-
-    <!-- MV_003 | Iniciar Sesion -->
-
+    tools:context=".auth.anonym_register">
+    <!-- MV_002 | Registrar Usuario -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,20 +39,21 @@
             android:layout_marginBottom="30dp"
             android:hint="Correo/teléfono">
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Diseno del campo de contrasena -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_password"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="165dp"
-            android:hint="Contraseña"
             app:endIconMode="password_toggle"
-            app:errorContentDescription="content_description_start_icon">
+            app:errorContentDescription="content_description_start_icon"
+            android:layout_marginBottom="30dp"
+
+            android:hint="Contraseña">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
@@ -62,27 +61,44 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Diseno del campo de contrasena -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input_password2"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            app:endIconMode="password_toggle"
+            app:errorContentDescription="content_description_start_icon"
+            android:layout_marginBottom="75dp"
+            android:hint="Repetir Contraseña">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_register"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/seed"
             android:textSize="18dp"
             android:textColor="@color/md_theme_light_onPrimary"
-            android:text="Iniciar Sesión"
-            android:layout_marginBottom="10dp" />
-
-<!--        El boton que nos lleva al registro -->
+            android:text="Crear Cuenta"
+            android:layout_marginBottom="10dp"
+            />
+        <!--El boton que nos lleva al Login-->
         <Button
-            android:id="@+id/btn_to_register"
+            android:id="@+id/btn_to_login"
             android:layout_width="240dp"
             android:layout_height="40dp"
             android:textSize="14dp"
             android:backgroundTint="@color/md_theme_light_onPrimary"
-            android:text="No tengo una cuenta"
+            android:text="Ya tengo una cuenta"
             android:textColor="@color/seed" />
+
     </LinearLayout>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout >
 
-<!--androidx.coordinatorlayout.widget.CoordinatorLayout-->
+</androidx.coordinatorlayout.widget.CoordinatorLayout >
