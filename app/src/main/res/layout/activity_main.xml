@@ -14,7 +14,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/days_one"
+        android:fontFamily="@font/montserrat_bold"
         android:text="Localito"
         android:textColor="#F26E18"
         android:textSize="48sp"

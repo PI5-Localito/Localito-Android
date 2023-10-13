@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         b = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
-        b.btnRegister.setOnClickListener(view -> {startView("anonym_register");});
-        b.btnLogin.setOnClickListener(view -> {startView("anonym_login");});
+        b.btnRegister.setOnClickListener(view -> {startView("AnonymRegister");});
+        b.btnLogin.setOnClickListener(view -> {startView("AnonymLogin");});
     }
 
     public void startView(String nombre){
