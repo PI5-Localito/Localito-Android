@@ -108,8 +108,7 @@
     <include layout="@layout/item_profile" />
     <include layout="@layout/item_profile" />
     <include layout="@layout/item_profile" />
-    <include layout="@layout/item_profile" />
-    <include layout="@layout/item_profile" />
+
     </LinearLayout>
     <!--Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
