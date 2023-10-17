@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Localito"
         tools:targetApi="31">
         <activity
+            android:name=".SellerProfile"
+            android:exported="false" />
+        <activity
             android:name=".auth.AnonymRegister"
             android:exported="false" />
         <activity

@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Localito</string>
+
+    <string name="stand_description">Venedemos de todo lo que necesite en su dia a dia ropa moderna..</string>
+    <string name="product_image_title">Texto secundario</string>
+    <string name="product_title">Pantalones de mezclilla</string>
+    <string name="product_description">Pantalones americanos de la mejor calidad</string>
+    <string name="product_price">$ 250</string>
+    <string name="product_button_order">Ordenar</string>
+    <string name="product_button_available">Disponible</string>
+
 </resources>
