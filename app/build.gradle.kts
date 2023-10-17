@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "mx.pi5.localito"
-    compileSdk = 33
+    compileSdk = 34
 
     viewBinding {
         enable = true
@@ -13,7 +13,7 @@ android {
     defaultConfig {
         applicationId = "mx.pi5.localito"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

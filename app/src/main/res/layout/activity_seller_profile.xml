@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/md_theme_light_surface"
-    tools:context=".SellerProfile">
+    tools:context=".layouts.SellerProfile">
     <!-- componente de barra de busqueda -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -22,94 +22,103 @@
             app:layout_scrollFlags="scroll|enterAlways" />
     </com.google.android.material.appbar.AppBarLayout>
 <!-- aqui va el contenido de la vista del perfil del usuario-->
-
-    <LinearLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="8dp"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-        <ImageView
-            android:layout_width="184dp"
-            android:layout_height="121dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="114dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/woo"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="30dp"
-            android:text="Tienda americana"
-            android:textStyle="bold"
-            android:gravity="center"
-            />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal"> <!-- Ajuste aquí -->
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="?android:attr/actionBarSize">
+            <ImageView
+                android:layout_width="184dp"
+                android:layout_height="121dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/woo"
+                />
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/seed"
-                android:text="Enviar mensaje" />
+                android:textSize="30dp"
+                android:text="Tienda americana"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/seed"
+                    android:text="Enviar mensaje" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/about_us"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Acerca de nosotros"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/stand_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/stand_description"
+                android:textStyle="italic"
+                android:textSize="16dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="8dp" />
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/reputation"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="Calificación"-->
+    <!--            android:textStyle="bold"-->
+    <!--            android:textSize="18dp"-->
+    <!--            android:layout_marginStart="10dp"-->
+    <!--            android:layout_marginBottom="8dp" />-->
+
+            <TextView
+                android:id="@+id/my_stand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mis Productos"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="8dp" />
+
+
+        <include layout="@layout/item_profile" />
+        <include layout="@layout/item_profile" />
+        <include layout="@layout/item_profile" />
+        <include layout="@layout/item_profile" />
+        <include layout="@layout/item_profile" />
+        <include layout="@layout/item_profile" />
+        <include layout="@layout/item_profile" />
 
         </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
-
-        <TextView
-            android:id="@+id/about_us"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Acerca de nosotros"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="8dp" />
-
-        <TextView
-            android:id="@+id/stand_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/stand_description"
-            android:textStyle="italic"
-            android:textSize="16dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="8dp" />
-
-<!--        <TextView-->
-<!--            android:id="@+id/reputation"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Calificación"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="18dp"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:layout_marginBottom="8dp" />-->
-
-        <TextView
-            android:id="@+id/my_stand"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mis Productos"
-            android:textStyle="bold"
-            android:textSize="18dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="8dp" />
-
-
-    <include layout="@layout/item_profile" />
-    <include layout="@layout/item_profile" />
-    <include layout="@layout/item_profile" />
-
-    </LinearLayout>
     <!--Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

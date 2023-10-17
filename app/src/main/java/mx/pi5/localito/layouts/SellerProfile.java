@@ -1,4 +1,4 @@
-package mx.pi5.localito;
+package mx.pi5.localito.layouts;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
