@@ -1,19 +1,17 @@
-package mx.pi5.localito.auth;
+package mx.pi5.localito.layouts;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import mx.pi5.localito.databinding.ActivitySellerProfileBinding;
+public class SellerProfile extends AppCompatActivity {
 
-import mx.pi5.localito.R;
-import mx.pi5.localito.databinding.AnonymLoginBinding;
+    ActivitySellerProfileBinding b;
 
-public class AnonymLogin extends AppCompatActivity {
-    AnonymLoginBinding b;
-    Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        b = AnonymLoginBinding.inflate(getLayoutInflater());
+        b = ActivitySellerProfileBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
     }
 }

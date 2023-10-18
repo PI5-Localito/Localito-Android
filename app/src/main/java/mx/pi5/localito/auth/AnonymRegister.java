@@ -5,16 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import mx.pi5.localito.R;
-import mx.pi5.localito.databinding.ActivityMainBinding;
+import mx.pi5.localito.databinding.AnonymRegisterBinding;
 
 public class AnonymRegister extends AppCompatActivity {
-    ActivityMainBinding b;
+    AnonymRegisterBinding b;
     Intent i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        b = ActivityMainBinding.inflate(getLayoutInflater());
+        b = AnonymRegisterBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
     }
 }
