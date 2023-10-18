@@ -13,8 +13,14 @@
         android:theme="@style/Theme.Localito"
         tools:targetApi="31">
         <activity
-            android:name=".layouts.categoriesView"
-            android:exported="false" />
+            android:name=".layouts.SellerProfile"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".auth.AnonymRegister"
             android:exported="false" />
