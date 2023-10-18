@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Localito</string>
     <string name="search">Buscar</string>
+    <string name="search_hint">Buscar...</string>
+    <string name="home">Inicio</string>
+    <string name="categories">Categorias</string>
+    <string name="user">Usuario</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

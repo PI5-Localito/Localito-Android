@@ -17,24 +17,12 @@
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <action android:name="android.intent.action.SEARCH" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".StandsList"
-            android:exported="false">
-        </activity>
-        <activity
-            android:name=".ProductCatalogue"
-            android:exported="false">
-        </activity>
-        <activity
             android:name=".AuthActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CategoriesList"
             android:exported="false" />
     </application>
 

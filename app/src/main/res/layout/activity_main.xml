@@ -1,60 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity"
-    tools:ignore="HardcodedText"
     >
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/Widget.Material3.AppBarLayout"
+        android:layout_weight="1"
         >
-        <com.google.android.material.search.SearchBar
-            android:id="@+id/search_bar"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Buscar..."
+            style="@style/Widget.Material3.AppBarLayout"
             >
+            <com.google.android.material.search.SearchBar
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/search_hint"
+                >
 
-        </com.google.android.material.search.SearchBar>
-        <com.google.android.material.tabs.TabLayout
+            </com.google.android.material.search.SearchBar>
+            <!--
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:title="@string/app_name"
+                app:menu="@menu/appbar_items"
+                />
+            -->
+        </com.google.android.material.appbar.AppBarLayout>
+        <com.google.android.material.search.SearchView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/tabs_layout"
-            >
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/baseline_map_24"
-                android:text="Cerca"
-                />
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/baseline_whatshot_24"
-                android:text="Popular"
-                />
-        </com.google.android.material.tabs.TabLayout>
-        <!--
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:title="@string/app_name"
-            app:menu="@menu/appbar_items"
+            android:hint="@string/search_hint"
+            app:layout_anchor="@id/search_bar"
             />
-        -->
-    </com.google.android.material.appbar.AppBarLayout>
-    <com.google.android.material.search.SearchView
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Buscar..."
-        app:layout_anchor="@id/search_bar"
+        app:menu="@menu/bottombar_items"
         />
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

@@ -2,10 +2,10 @@ package mx.pi5.localito;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.os.Bundle;
 
+import mx.pi5.localito.adapters.ProductAdapter;
 import mx.pi5.localito.databinding.ActivityCategoriesListBinding;
 
 public class CategoriesList extends AppCompatActivity {
