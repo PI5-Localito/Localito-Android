@@ -1,27 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AuthActivity">
+    tools:context=".AuthActivity"
+    tools:ignore="HardcodedText"
+    >
 
-    <EditText
-        android:id="@+id/txtUsu"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Usuario"/>
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="200sp"
+            android:layout_height="200sp"
+            android:src="@drawable/localito_header"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/email"
+            android:layout_marginBottom="10dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Correo"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/passw"
+            android:layout_marginBottom="10dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:hint="Contraseña"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Iniciar"
+            android:backgroundTint="@color/seed"
+            />
+    </LinearLayout>
 
-    <EditText
-        android:id="@+id/txtPass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Contraseña"/>
-
-    <Button
-        android:id="@+id/btnIniciar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Iniciar Sesion"/>
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

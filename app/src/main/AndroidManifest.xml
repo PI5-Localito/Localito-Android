@@ -13,10 +13,11 @@
         android:theme="@style/Theme.Localito"
         tools:targetApi="31">
         <activity
-            android:name=".CategoriesList"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.SEARCH" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
@@ -33,7 +34,7 @@
             android:name=".AuthActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".CategoriesList"
             android:exported="false" />
     </application>
 
