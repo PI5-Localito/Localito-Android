@@ -11,7 +11,7 @@
     >
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         >
         <com.google.android.material.appbar.AppBarLayout
@@ -25,18 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/search_hint"
-                >
-
-            </com.google.android.material.search.SearchBar>
-            <!--
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/topbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:title="@string/app_name"
-                app:menu="@menu/appbar_items"
                 />
-            -->
         </com.google.android.material.appbar.AppBarLayout>
         <com.google.android.material.search.SearchView
             android:layout_width="match_parent"
@@ -48,6 +37,8 @@
             android:id="@+id/fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            app:navGraph="@navigation/main_navigation"
+            app:defaultNavHost="true"
             />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
