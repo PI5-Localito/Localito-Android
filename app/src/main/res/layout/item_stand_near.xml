@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:backgroundTint="@color/md_theme_light_surface"
-        app:cardCornerRadius="8dp"
+        app:cardCornerRadius="30dp"
         app:cardElevation="8dp"
         app:strokeWidth="0dp">
 
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/stand_title"
                     android:textStyle="bold"
-                    android:textSize="18sp"/>
+                    android:textSize="20sp"/>
 
                 <!-- Descripción -->
                 <TextView
@@ -52,7 +52,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="16dp"
-                    android:text="@string/stand_description"/>
+                    android:text="@string/stand_description"
+                    android:layout_marginVertical="10dp"/>
 
                 <!-- Botón -->
                 <Button
@@ -63,65 +64,4 @@
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-    <com.google.android.material.card.MaterialCardView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/near_stand_id2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:backgroundTint="@color/md_theme_light_surface"
-        app:cardCornerRadius="8dp"
-        app:cardElevation="8dp"
-        app:strokeWidth="0dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <!-- Espacio para la imagen -->
-            <ImageView
-                android:id="@+id/card_image2"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/img_local_dos"
-                android:scaleType="centerCrop"
-                android:contentDescription="Descripción de la imagen"/>
-
-            <!-- Contenedor para la información -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <!-- Título -->
-                <TextView
-                    android:id="@+id/card_title2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/stand_title"
-                    android:textStyle="bold"
-                    android:textSize="18sp"/>
-
-                <!-- Descripción -->
-                <TextView
-                    android:id="@+id/card_description2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="16dp"
-                    android:text="@string/stand_description"/>
-
-                <!-- Botón -->
-                <Button
-                    android:id="@+id/card_button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Visitar"/>
-            </LinearLayout>
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
 </LinearLayout>

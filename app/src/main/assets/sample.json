@@ -1,0 +1,9 @@
+[
+  {"tit": "MiXi", "desc": "Joyería personalizada.", "ubi": "res/drawable/1.jpg"},
+  {"tit": "CisNatura", "desc": "Desde dentro de la naturaleza. Somos medicina alternativa.", "ubi": "res/drawable/2.jpg"},
+  {"tit": "Piel Morena", "desc": "¡Ofertas por fin de mes!", "ubi": "res/drawable/3.jpg"},
+  {"tit": "Tacos Don Pepe", "desc": "Los mejores tacos de todo Manzayork", "ubi": "res/drawable/4.jpg"},
+  {"tit": "Papelería Alva", "desc": "Contamos con envpios a Domicilio", "ubi": "res/drawable/5.jpg"},
+  {"tit": "Ciber 'El Navegante'", "desc": "Todo tipo de artículos de papelería", "ubi": "res/drawable/6.jpg"},
+  {"tit": "Tortas Chuy", "desc": "Las más ricotas.", "ubi": "res/drawable/7.jpg"}
+]
