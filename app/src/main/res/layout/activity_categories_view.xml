@@ -1,106 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f3f3f3"
-    tools:context=".MainActivity">
-
-    <include
-        layout="@layout/header_view"
+    android:background="@color/md_theme_light_surface"
+    tools:context=".layouts.categoriesView">
+    <!-- componente de barra de busqueda -->
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/header_view"/>
+        android:gravity="center"
+        android:elevation="15dp"
+        android:backgroundTint="@color/md_theme_light_tertiaryContainer">
 
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:columnCount="2"
-        android:rowCount="4"
-        app:layout_constraintBottom_toTopOf="@id/bottom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header_view">
+        <com.google.android.material.search.SearchBar
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Buscar"
+            android:backgroundTint="#FFF"
+            app:layout_scrollFlags="scroll|enterAlways" />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="250dp"
+            android:layout_height="match_parent"
+            android:minHeight="?attr/actionBarSize"
+            app:title="Categorías"
+            app:menu="@menu/top_app_bar"
+            app:navigationIcon="@drawable/baseline_dashboard_24" />
 
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_margin="10dp"
-            android:background="f3f3f3"
-            android:src="@drawable/image"></ImageButton>
+    </com.google.android.material.appbar.AppBarLayout>
 
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_row="0"
-            android:layout_column="1"
-            android:layout_margin="10dp"
-            android:background="f3f3f3"
-            android:src="@drawable/image"></ImageButton>
+    <!--Contenido de las categorias-->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="?android:attr/actionBarSize">
 
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:layout_margin="10dp"
-            android:background="f3f3f3"
-            android:src="@drawable/image"></ImageButton>
+            <!-- Imagenes de las categorias-->
+            <include layout="@layout/item_categorie" />
 
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:layout_margin="10dp"
-            android:background="f3f3f3"
-            android:src="@drawable/image"></ImageButton>
+        </LinearLayout>
 
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_row="2"
-            android:layout_column="0"
-            android:layout_margin="10dp"
-            android:background="f3f3f3"
-            android:src="@drawable/image"></ImageButton>
-
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:layout_margin="10dp"
-            android:background="f3f3f3"
-            android:src="@drawable/image"></ImageButton>
-
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_row="3"
-            android:layout_column="0"
-            android:layout_margin="10dp"
-            android:background="f3f3f3"
-            android:src="@drawable/image"></ImageButton>
-
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_row="3"
-            android:layout_column="1"
-            android:layout_margin="10dp"
-            android:background="f3f3f3"
-            android:src="@drawable/image"></ImageButton>
-    </GridLayout>
-
-    <include
-        android:id="@+id/bottom"
-        layout="@layout/bottom_view"
+    </androidx.core.widget.NestedScrollView>
+    <!--Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_gravity="bottom"
+        android:elevation="8dp"
+        app:menu="@menu/bottom_navigation_menu" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
