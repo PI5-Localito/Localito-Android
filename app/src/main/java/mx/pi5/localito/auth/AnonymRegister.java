@@ -19,6 +19,10 @@ public class AnonymRegister extends AppCompatActivity {
         b = AnonymRegisterBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+        setSupportActionBar(b.btnTopAppBack);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

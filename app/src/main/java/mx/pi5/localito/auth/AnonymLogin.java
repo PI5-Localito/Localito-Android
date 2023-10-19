@@ -26,8 +26,6 @@ public class AnonymLogin extends AppCompatActivity {
         b = AnonymLoginBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         user = (EditText) findViewById(R.id.etxmail);
         contra = (EditText) findViewById(R.id.etxpassword);
         btn = (Button) findViewById(R.id.btn_login);
@@ -37,11 +35,19 @@ public class AnonymLogin extends AppCompatActivity {
             ps = contra.getText().toString();
             if (us.isEmpty() || ps.isEmpty()) {
                 Toast.makeText(AnonymLogin.this, "Debes llenar los campos primero", Toast.LENGTH_LONG).show();
-            } else if (user.equals("usuario@mail.com") && contra.equals("contra123")) {
+            } else if (us.equals("usuario@mail.com") && ps.equals("contra123")) {
                 i = new Intent(AnonymLogin.this, StandNear.class);
                 startActivity(i);
+            } else {
+                Toast.makeText(AnonymLogin.this, "Credenciales incorrectas", Toast.LENGTH_LONG).show();
             }
         });
+
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
+        setSupportActionBar(b.btnTopAppBack);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

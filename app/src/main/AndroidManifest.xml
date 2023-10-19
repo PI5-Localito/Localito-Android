@@ -24,9 +24,11 @@
         </activity>
         <activity
             android:name=".auth.AnonymRegister"
+            android:theme="@style/Theme.Localito"
             android:exported="false" />
         <activity
             android:name=".auth.AnonymLogin"
+            android:theme="@style/Theme.Localito"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -61,10 +61,10 @@ public class StandNear extends AppCompatActivity {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                // Extraer datos del JSON (por ejemplo, título, descripción, imagen, etc.)
-                String title = jsonObject.getString("title");
-                String description = jsonObject.getString("description");
-                String imageUrl = jsonObject.getString("image_url");
+                // Extraer datos del JSON (título, descripción e imagen)
+                String title = jsonObject.optString("tit");
+                String description = jsonObject.optString("desc");
+                String imageUrl = jsonObject.optString("ubi");
 
                 // Crear una instancia de tu modelo de datos
                 YourDataModel dataModel = new YourDataModel(title, description, imageUrl);
@@ -82,6 +82,7 @@ public class StandNear extends AppCompatActivity {
         } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
+
     }
 
     public class YourDataModel {

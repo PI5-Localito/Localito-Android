@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
         <style name="Theme.Localito" parent="Theme.Material3.Light.NoActionBar">
+            <item name="windowActionBar">false</item>
             <item name="colorPrimary">@color/md_theme_light_primary</item>
             <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
             <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
