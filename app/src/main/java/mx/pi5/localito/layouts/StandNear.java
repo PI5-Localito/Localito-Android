@@ -27,7 +27,6 @@ import java.util.List;
 
 import mx.pi5.localito.R;
 import mx.pi5.localito.databinding.ActivityStandNearBinding;
-import com.bumptech.glide.Glide;
 
 
 public class StandNear extends AppCompatActivity {
@@ -134,10 +133,6 @@ public class StandNear extends AppCompatActivity {
             holder.cardTitle.setText(data.getTitle());
             holder.cardDescription.setText(data.getDescription());
 
-            // Cargar la imagen utilizando una biblioteca como Glide o Picasso
-            Glide.with(context)
-                .load(data.getImageUrl())
-                .into(holder.cardImage);
         }
 
         @Override
