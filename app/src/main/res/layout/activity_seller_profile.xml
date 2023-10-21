@@ -21,6 +21,7 @@
             android:backgroundTint="#FFF"
             app:layout_scrollFlags="scroll|enterAlways" />
     </com.google.android.material.appbar.AppBarLayout>
+
 <!-- aqui va el contenido de la vista del perfil del usuario-->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -33,6 +34,7 @@
             android:orientation="vertical"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="?android:attr/actionBarSize">
+
             <ImageView
                 android:layout_width="184dp"
                 android:layout_height="121dp"
@@ -40,7 +42,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="15dp"
-                android:background="@drawable/woo"
+                android:background="@drawable/c"
                 />
             <TextView
                 android:layout_width="match_parent"

@@ -25,7 +25,7 @@
                 android:id="@+id/card_image"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/img_local_uno"
+                android:src="@drawable/b"
                 android:scaleType="centerCrop"
                 android:contentDescription="Descripción de la imagen"/>
 
