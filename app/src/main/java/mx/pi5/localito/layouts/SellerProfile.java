@@ -1,17 +1,17 @@
 package mx.pi5.localito.layouts;
 
 import androidx.appcompat.app.AppCompatActivity;
-import mx.pi5.localito.databinding.ActivityCategoriesViewBinding;
+import android.content.Intent;
 import android.os.Bundle;
+import mx.pi5.localito.databinding.ActivitySellerProfileBinding;
+public class SellerProfile extends AppCompatActivity {
 
-import mx.pi5.localito.R;
+    ActivitySellerProfileBinding b;
 
-public class categoriesView extends AppCompatActivity {
-    ActivityCategoriesViewBinding b;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        b = ActivityCategoriesViewBinding.inflate(getLayoutInflater());
+        b = ActivitySellerProfileBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
     }
 }

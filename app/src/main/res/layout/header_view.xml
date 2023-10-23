@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="15dp"
-        android:backgroundTint="@color/seed">
+        android:backgroundTint="@color/md_theme_light_tertiaryContainer">
 
         <com.google.android.material.search.SearchBar
             android:id="@+id/search_bar"

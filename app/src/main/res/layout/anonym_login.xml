@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -44,8 +45,9 @@
             app:endIconMode="clear_text">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:inputType="textEmailAddress" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,10 +62,11 @@
             app:errorContentDescription="content_description_start_icon">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/password"
+                android:id="@+id/etxpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:contentDescription="Password field"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -80,7 +83,7 @@
         <Button
             android:id="@+id/btn_to_register"
             android:layout_width="240dp"
-            android:layout_height="40dp"
+            android:layout_height="50dp"
             android:backgroundTint="@color/md_theme_light_onPrimary"
             android:text="No tengo una cuenta"
             android:textColor="@color/seed"
@@ -88,5 +91,3 @@
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-<!--androidx.coordinatorlayout.widget.CoordinatorLayout-->
