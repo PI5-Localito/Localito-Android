@@ -10,4 +10,14 @@
         android:name="mx.pi5.localito.fragment.StandsListFragment"
         android:label="fragment_stands"
         tools:layout="@layout/fragment_stands" />
+    <fragment
+        android:id="@+id/categories"
+        android:name="mx.pi5.localito.fragment.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" />
+    <fragment
+        android:id="@+id/orders"
+        android:name="mx.pi5.localito.fragment.OrderFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/fragment_order" />
 </navigation>

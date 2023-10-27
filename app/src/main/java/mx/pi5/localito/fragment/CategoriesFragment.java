@@ -10,16 +10,15 @@ import android.view.ViewGroup;
 
 import mx.pi5.localito.R;
 
-public class StandsListFragment extends Fragment {
+public class CategoriesFragment extends Fragment {
 
-    public StandsListFragment() {
+    public CategoriesFragment() {
         // Required empty public constructor
     }
 
 
-    public static StandsListFragment newInstance(String param1, String param2) {
-        StandsListFragment fragment = new StandsListFragment();
-        Bundle args = new Bundle();
+    public static CategoriesFragment newInstance(String param1, String param2) {
+        CategoriesFragment fragment = new CategoriesFragment();
 
         return fragment;
     }
@@ -34,6 +33,6 @@ public class StandsListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_stands, container, false);
+        return inflater.inflate(R.layout.fragment_categories, container, false);
     }
 }

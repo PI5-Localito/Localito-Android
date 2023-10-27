@@ -14,9 +14,9 @@
         app:showAsAction="always"
         />
     <item
-        android:id="@+id/user"
-        android:title="@string/user"
-        android:icon="@drawable/baseline_person_24"
+        android:id="@+id/orders"
+        android:title="@string/order"
+        android:icon="@drawable/baseline_checklist_rtl_24"
         app:showAsAction="always"
         />
 </menu>
