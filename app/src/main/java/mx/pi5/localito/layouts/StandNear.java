@@ -1,156 +1,98 @@
 package mx.pi5.localito.layouts;
 
-import androidx.annotation.NonNull;
+import android.os.AsyncTask;
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Context;
-import android.content.res.AssetManager;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import mx.pi5.localito.R;
-import mx.pi5.localito.databinding.ActivityStandNearBinding;
-
+import mx.pi5.localito.services.Adaptador;
+import mx.pi5.localito.services.ApiRequest;
 
 public class StandNear extends AppCompatActivity {
-    ActivityStandNearBinding b;
+    RecyclerView recyclerView;
+    Adaptador adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        b = ActivityStandNearBinding.inflate(getLayoutInflater());
-        setContentView(b.getRoot());
+        setContentView(R.layout.activity_stand_near);
 
-        AssetManager assetManager = getAssets();
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new Adaptador();
+        recyclerView.setAdapter(adapter);
 
-        try {
-            // Lee el archivo JSON desde la carpeta "assets"
-            InputStream inputStream = assetManager.open("sample.json");
-
-            // Convierte el InputStream en una cadena
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            StringBuilder stringBuilder = new StringBuilder();
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                stringBuilder.append(line);
-            }
-            String json = stringBuilder.toString();
-
-            // Parsea el JSON y almacena los datos en una lista
-            JSONArray jsonArray = new JSONArray(json);
-            List<YourDataModel> dataList = new ArrayList<>();
-
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
-
-                // Extraer datos del JSON (título, descripción e imagen)
-                String title = jsonObject.optString("tit");
-                String description = jsonObject.optString("desc");
-                String imageUrl = jsonObject.optString("ubi");
-
-                // Crear una instancia de tu modelo de datos
-                YourDataModel dataModel = new YourDataModel(title, description, imageUrl);
-
-                // Agregar el modelo a la lista
-                dataList.add(dataModel);
-            }
-
-            // Configura el RecyclerView y el adaptador con los datos
-            RecyclerView recyclerView = findViewById(R.id.recyclerView);
-            YourAdapter adapter = new YourAdapter(this, dataList);
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
-            recyclerView.setAdapter(adapter);
-
-        } catch (IOException | JSONException e) {
-            e.printStackTrace();
-        }
-
+        new GetDataFromApiTask().execute();
     }
 
-    public class YourDataModel {
+    public class GetDataFromApiTask extends AsyncTask<Void, Void, String> {
+        @Override
+        protected String doInBackground(Void... voids) {
+            // solicitud a la API y respuesta JSON como cadena
+            String apiUrl = "https://653b29a72e42fd0d54d4bf04.mockapi.io/api/testv1/stands";
+            return ApiRequest.getJsonFromApi(apiUrl);
+        }
+
+        @Override
+        protected void onPostExecute(String jsonResponse) {
+            if (jsonResponse != null) {
+                // analiza respuesta JSON y actualiza RecyclerView
+                try {
+                    List<Stand> stands = parseJson(jsonResponse);
+                    adapter.setStands(stands);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public List<Stand> parseJson(String json) throws JSONException {
+        List<Stand> stands = new ArrayList<>();
+        JSONArray jsonArray = new JSONArray(json);
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            JSONObject jsonObject = jsonArray.getJSONObject(i);
+            Stand stand = new Stand();
+            stand.title = jsonObject.getString("title");
+            stand.description = jsonObject.getString("description");
+            stand.imageUrl = jsonObject.getString("image");
+            stand.id = jsonObject.getString("id");
+            stands.add(stand);
+        }
+        return stands;
+    }
+
+    public static class Stand {
         private String title;
         private String description;
         private String imageUrl;
+        private String id;
 
-        public YourDataModel(String title, String description, String imageUrl) {
+        public Stand(String title, String description, String imageUrl, String id) {
             this.title = title;
             this.description = description;
             this.imageUrl = imageUrl;
+            this.id = id;
         }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public String getDescription() {
-            return description;
-        }
-
-        public String getImageUrl() {
-            return imageUrl;
-        }
-    }
-
-    public class YourAdapter extends RecyclerView.Adapter<YourAdapter.ViewHolder> {
-        private List<YourDataModel> dataList;
-        private Context context;
-
-        // Debes pasar el contexto en el constructor
-        public YourAdapter(Context context, List<YourDataModel> dataList) {
-            this.context = context;
-            this.dataList = dataList;
-        }
-
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(context).inflate(R.layout.item_stand_near, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            YourDataModel data = dataList.get(position);
-
-            // Configura las vistas dentro de tu card con los datos
-            holder.cardTitle.setText(data.getTitle());
-            holder.cardDescription.setText(data.getDescription());
-
-        }
-
-        @Override
-        public int getItemCount() {
-            return dataList.size();
-        }
-
-        public class ViewHolder extends RecyclerView.ViewHolder {
-            ImageView cardImage;
-            TextView cardTitle;
-            TextView cardDescription;
-
-            public ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                cardImage = itemView.findViewById(R.id.card_image);
-                cardTitle = itemView.findViewById(R.id.card_title);
-                cardDescription = itemView.findViewById(R.id.card_description);
-            }
-        }
+        public Stand() { }
+        public String getTitle() { return title;}
+        public void setTitle(String title) { this.title = title; }
+        public String getDescription() { return description; }
+        public void setDescription(String description) { this.description = description; }
+        public String getImageUrl() { return imageUrl; }
+        public void setImageUrl(String imageUrl) { this.imageUrl = imageUrl; }
+        public String getId() { return id; }
+        public void setId(String id) { this.id = id; }
     }
 }
