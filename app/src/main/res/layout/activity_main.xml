@@ -33,15 +33,25 @@
             android:hint="@string/search_hint"
             app:layout_anchor="@id/search_bar"
             />
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragment"
+<!--        <androidx.fragment.app.FragmentContainerView-->
+<!--            android:id="@+id/nav_host_fragment"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:name="androidx.navigation.fragment.NavHostFragment"-->
+<!--            app:defaultNavHost="true"-->
+<!--            app:navGraph="@navigation/main_navigation" />-->
+        <fragment
+            android:id="@+id/nav_host_fragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="mx.pi5.localito.BlankFragment"
-            />
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/main_navigation" />
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:menu="@menu/bottombar_items"

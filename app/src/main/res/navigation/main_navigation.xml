@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/stands">
+
+    <fragment
+        android:id="@+id/stands"
+        android:name="mx.pi5.localito.fragment.StandsListFragment"
+        android:label="fragment_stands"
+        tools:layout="@layout/fragment_stands" />
+    <fragment
+        android:id="@+id/categories"
+        android:name="mx.pi5.localito.fragment.CategoriesFragment"
+        android:label="fragment_categories"
+        tools:layout="@layout/fragment_categories" />
+    <fragment
+        android:id="@+id/orders"
+        android:name="mx.pi5.localito.fragment.OrderFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/fragment_order" />
+</navigation>
