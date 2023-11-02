@@ -1,4 +1,4 @@
-package mx.pi5.localito.Models;
+package mx.pi5.localito.Entidades;
 
 public class User {
     private int id;
