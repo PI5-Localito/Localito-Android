@@ -1,4 +1,4 @@
-package mx.pi5.localito.Entidades;
+package mx.pi5.localito.Entitys;
 
 public class Sellers {
 

@@ -1,6 +1,6 @@
 package mx.pi5.localito.Modelos;
 
-import mx.pi5.localito.Entidades.User;
+import mx.pi5.localito.Entitys.User;
 
 public class UserMain {
 
