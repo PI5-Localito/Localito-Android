@@ -38,11 +38,13 @@ android {
 dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
+    implementation("com.google.android.gms:auth-api-impl:11.6.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.navigation:navigation-fragment:2.7.4")
     implementation("androidx.navigation:navigation-ui:2.7.4")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.12.5")
-
+    implementation("net.openid:appauth:0.7.1")
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
 }
