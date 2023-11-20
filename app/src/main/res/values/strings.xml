@@ -10,4 +10,8 @@
     <string name="product_button_order">Ordenar</string>
     <string name="product_button_available">Disponible</string>
 
+    <string name="terms_text">He leído y acepto los</string>
+    <string name="policy_text">He leído y acepto la</string>
+    <string name="terms_title">Términos y Condiciones</string>
+    <string name="policy_title">Política de Privacidad</string>
 </resources>
