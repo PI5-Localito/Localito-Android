@@ -1,5 +1,9 @@
-package mx.pi5.localito.Models;
+package mx.pi5.localito.Entitys;
 
+//    ACTIVIDA DEL PI
+//    cambiar nombre del package 'Modelos' y cambiar a 'Entidades'
+//    Creo otro package 'Modelos'
+//    Crear un JSON para convertir a entidades.
 public class Cities {
     private int id;
     private String cCode;

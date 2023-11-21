@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
+
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -14,11 +17,13 @@ import android.widget.Toolbar;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.snackbar.Snackbar;
 
+import mx.pi5.localito.Auth.AuthManager;
 import mx.pi5.localito.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding b;
     private NavController navController;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,5 +65,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-
+    private void startAuthentication(){
+        AuthManager authManager = new AuthManager(
+            this,
+            "client-id",
+            "cliente-secreto",
+            "com.example://oauth-callback"
+        );
+        // Inicia el flujo de autenticacion
+        authManager.authenticate();
+    }
 }
