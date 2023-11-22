@@ -1,4 +1,4 @@
-package mx.pi5.localito.Entitys;
+package mx.pi5.localito.entity;
 
 public class Stands {
     private int id;

@@ -19,4 +19,10 @@
         android:icon="@drawable/baseline_checklist_rtl_24"
         app:showAsAction="always"
         />
+    <item
+        android:id="@+id/more"
+        android:title="@string/more"
+        android:icon="@drawable/baseline_more_horiz_24"
+        app:showAsAction="always"
+        />
 </menu>

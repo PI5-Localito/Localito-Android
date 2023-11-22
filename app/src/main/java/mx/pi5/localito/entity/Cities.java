@@ -1,4 +1,4 @@
-package mx.pi5.localito.Entitys;
+package mx.pi5.localito.entity;
 
 //    ACTIVIDA DEL PI
 //    cambiar nombre del package 'Modelos' y cambiar a 'Entidades'

@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/stands">
-
+    app:startDestination="@id/stands"
+    >
     <fragment
         android:id="@+id/stands"
-        android:name="mx.pi5.localito.fragment.StandsListFragment"
-        android:label="fragment_stands"
-        tools:layout="@layout/fragment_stands" />
+        android:name="mx.pi5.localito.fragment.Stands"
+        android:label="@string/stands"
+        tools:layout="@layout/fragment_stands"
+        app:route="stands"
+
+        />
     <fragment
         android:id="@+id/categories"
-        android:name="mx.pi5.localito.fragment.CategoriesFragment"
-        android:label="fragment_categories"
-        tools:layout="@layout/fragment_categories" />
-    <fragment
-        android:id="@+id/orders"
-        android:name="mx.pi5.localito.fragment.OrderFragment"
-        android:label="fragment_order"
-        tools:layout="@layout/fragment_order" />
+        android:name="mx.pi5.localito.fragment.Categories"
+        android:label="@string/categories"
+        app:route="categories"
+        tools:layout="@layout/fragment_categories"
+        />
 </navigation>
