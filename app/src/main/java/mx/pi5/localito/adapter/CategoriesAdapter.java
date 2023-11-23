@@ -34,14 +34,8 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Vi
         protected void onClick(View view) {
             if (category == null) return;
             Intent intent = new Intent(ctx, CategoryStands.class);
-            int categ = -1;
-            switch (category) {
-                case "Comida": categ = 0; break;
-                case "Herrameintas": categ = 1; break;
-                case "Moda": categ = 2; break;
-                case "Servicios": categ = 3; break;
-                case "Mascotas": categ = 4; break;
-            }
+            String categ = null;
+
             intent.putExtra("category", category);
             ctx.startActivity(intent);
         }

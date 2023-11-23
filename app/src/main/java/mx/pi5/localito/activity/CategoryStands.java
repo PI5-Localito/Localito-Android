@@ -19,7 +19,7 @@ import mx.pi5.localito.service.Client;
 public class CategoryStands extends AuthorizedActivity {
     protected ActivityStandsCategoryBinding binding;
     protected List<Stand> stands = new ArrayList<>();
-    int category;
+    String category;
 
     public CategoryStands() { }
 
@@ -28,7 +28,7 @@ public class CategoryStands extends AuthorizedActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityStandsCategoryBinding.inflate(getLayoutInflater());
         Intent intent = getIntent();
-        category = intent.getIntExtra("category", -1);
+        category = intent.getStringExtra("category");
         setContentView(binding.getRoot());
     }
 

@@ -14,10 +14,10 @@ import mx.pi5.localito.entity.Stand;
 
 public class GetStandsByCategory extends ApiRequest<Stand[]> {
     private final Gson gson = new Gson();
-    public GetStandsByCategory(int category,
+    public GetStandsByCategory(String category,
                                Response.Listener<Stand[]> listener,
                                @Nullable Response.ErrorListener errorListener) {
-        super(String.format("stands/category/%d", category), Method.GET, listener, errorListener);
+        super(String.format("stands/category/%s", category), Method.GET, listener, errorListener);
     }
 
     @Override
