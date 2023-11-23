@@ -3,7 +3,6 @@ package mx.pi5.localito.endpoints;
 import com.android.volley.NetworkError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 
 import java.nio.charset.StandardCharsets;
