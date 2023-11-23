@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.Stands">
-
-    <TextView
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.Stands"
+    >
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Kingslayer"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/stands_list"
         />
 
 </FrameLayout>

@@ -1,13 +1,13 @@
 package mx.pi5.localito.entity;
 
-public class Stands {
+public class Stand {
     private int id;
     private String uid;
     private String name;
     private String info;
     private int city;
 
-    public Stands(int id, String uid, String name, String info, int city) {
+    public Stand(int id, String uid, String name, String info, int city) {
         this.id = id;
         this.uid = uid;
         this.name = name;
