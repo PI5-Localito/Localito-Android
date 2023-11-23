@@ -19,13 +19,22 @@ import android.view.View;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 
+import com.android.volley.AuthFailureError;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 
 import mx.pi5.localito.R;
 import mx.pi5.localito.databinding.AnonymRegisterBinding;
+import mx.pi5.localito.endpoints.Register;
+import mx.pi5.localito.entity.User;
+import mx.pi5.localito.service.Client;
 
 public class AnonymRegister extends AppCompatActivity {
 
@@ -45,7 +54,29 @@ public class AnonymRegister extends AppCompatActivity {
         CheckBox ckbPolicy = findViewById(R.id.ckbPolicy);
         setupClickableCheckBox(ckbPolicy, R.string.policy_text, R.string.policy_title, "Policy");
         b.btnRegister.setOnClickListener(view -> {
+            Client client = Client.getInstance(this);
+            String email = b.campoEmail.getText().toString();
+            String password = b.password.getText().toString();
+            String name = b.campoNombre.getText().toString();
+            String lastname = b.campoApellido.getText().toString();
+            User user = new User(email, password, null, name, lastname);
 
+            client.getQueue().add(new Register(response -> {
+                Intent i = new Intent(this, LoginActivity.class);
+                startActivity(i);
+                this.finish();
+            }, error -> Snackbar.make( b.getRoot(), error.getMessage(), Snackbar.LENGTH_SHORT).show()) {
+                public String getBodyContentType() {
+                    return "application/json";
+                }
+
+                @Override
+                public byte[] getBody() throws AuthFailureError {
+                    Gson gson = new Gson();
+                    return gson.toJson(user).getBytes();
+                }
+            });
+            client.getQueue().start();
         });
     }
 
