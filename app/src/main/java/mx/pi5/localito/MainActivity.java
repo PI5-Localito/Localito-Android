@@ -1,38 +1,38 @@
 package mx.pi5.localito;
-
-import androidx.appcompat.app.AppCompatActivity;
-
-import mx.pi5.localito.databinding.ActivityMainBinding;
-import mx.pi5.localito.layouts.HeaderView;
-
-import android.content.Intent;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import android.os.Bundle;
-import android.app.Application;
-import com.google.android.material.color.DynamicColors;
+import android.view.MenuItem;
+import mx.pi5.localito.AuthorizedActivity;
+import mx.pi5.localito.R;
+import mx.pi5.localito.databinding.ActivityMainBinding;
+import mx.pi5.localito.service.Client;
 
-public class MainActivity extends AppCompatActivity {
-
+public class MainActivity extends AuthorizedActivity {
     ActivityMainBinding b;
-    Intent i;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         b = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
-
-        b.btnRegister.setOnClickListener(view -> {startView("AnonymRegister");});
-        b.btnLogin.setOnClickListener(view -> {startView("AnonymLogin");});
+        b.navigation.setOnItemSelectedListener(this::navItemSelect);
     }
-
-    public void startView(String nombre){
-        try {
-            String packageName = getPackageName();
-            String className = packageName + ".auth." + nombre; //Construye el nombre completo de la clase
-            i = new Intent(MainActivity.this, Class.forName(className));
-            startActivity(i);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+    private NavController getNavController() {
+        NavHostFragment hostFragment =  b.container.getFragment();
+        return hostFragment.getNavController();
+    }
+    private boolean navItemSelect(MenuItem item) {
+        if (item.isChecked()) return false;
+        NavController controller = getNavController();
+        String route = "stands";
+        if (item.getItemId() == R.id.categories) {
+            route = "categories";
         }
+
+        controller.navigate(route);
+        Client client = Client.getInstance(this);
+        client.getQueue().stop();
+
+        return true;
     }
 }

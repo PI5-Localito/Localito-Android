@@ -17,16 +17,20 @@ class UserBuyer {
     public Buyer buyer;
 }
 
-public class Register extends ApiRequest<UserBuyer> {
+public class Register extends ApiRequest<String> {
 
-    public Register(Response.Listener<UserBuyer> listener, @Nullable Response.ErrorListener errorListener) {
+    public Register(Response.Listener<String> listener, @Nullable Response.ErrorListener errorListener) {
         super("user/create", Method.POST, listener, errorListener);
     }
 
     @Override
-    protected Response<UserBuyer> parseNetworkResponse(NetworkResponse response) {
+    protected Response<String> parseNetworkResponse(NetworkResponse response) {
         String message = new String(response.data, StandardCharsets.UTF_8);
-        if (response.statusCode != 200) return Response.error(new VolleyError(message));
-        return Response.success(message, null);
+        if (response.statusCode != 200) {
+            return Response.error(new VolleyError(message));
+        } else {
+            return Response.success(message, null);
+        }
     }
+
 }
