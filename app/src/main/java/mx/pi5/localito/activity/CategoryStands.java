@@ -39,9 +39,7 @@ public class CategoryStands extends AuthorizedActivity {
 
         client.getQueue().add(new GetStandsByCategory(category, response -> {
                 List<Stand> data = Arrays.asList(response);
-                stands.clear();
-                stands.addAll(data);
-                binding.standsList.setAdapter(new StandAdapter(stands));
+                binding.standsList.setAdapter(new StandAdapter(data));
             }, error -> Snackbar.make(
                     binding.getRoot(),
                     error.getMessage(),

@@ -17,7 +17,7 @@ public class GetStandsByCategory extends ApiRequest<Stand[]> {
     public GetStandsByCategory(int category,
                                Response.Listener<Stand[]> listener,
                                @Nullable Response.ErrorListener errorListener) {
-        super(String.format("/stands/category/%d", category), Method.GET, listener, errorListener);
+        super(String.format("stands/category/%d", category), Method.GET, listener, errorListener);
     }
 
     @Override

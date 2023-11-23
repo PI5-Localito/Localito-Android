@@ -11,4 +11,7 @@
     <string name="more">Mas</string>
     <string name="product_image">Product Image</string>
     <string name="create_stand">Crear stand</string>
+    <string name="terms_and_conditions">Terminos y condiciones</string>
+    <string name="privacy">Privacidad</string>
+    <string name="logout">Cerrar session</string>
 </resources>

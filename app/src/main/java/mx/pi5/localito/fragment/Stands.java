@@ -35,9 +35,6 @@ public class Stands extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentStandsBinding.inflate(inflater, container, false);
-        stands.add(new Stand());
-        stands.add(new Stand());
-        stands.add(new Stand());
         Client client = Client.getInstance(this.getContext());
 
         client.getQueue().add(new GetStands(response -> {

@@ -11,22 +11,22 @@ import java.nio.charset.StandardCharsets;
 import java.util.logging.Logger;
 
 import mx.pi5.localito.ApiRequest;
-import mx.pi5.localito.entity.Stand;
+import mx.pi5.localito.entity.Product;
 
-public class GetStands extends ApiRequest<Stand[]> {
+public class GetProducts extends ApiRequest<Product[]> {
     private final Gson gson = new Gson();
-    public GetStands(Response.Listener<Stand[]> listener, @Nullable Response.ErrorListener errorListener) {
-        super("stands", Method.GET, listener, errorListener);
+    public GetProducts(int id, Response.Listener<Product[]> listener, @Nullable Response.ErrorListener errorListener) {
+        super(String.format("stand/%d/products", id), Method.GET, listener, errorListener);
     }
 
     @Override
-    protected Response<Stand[]> parseNetworkResponse(NetworkResponse response) {
+    protected Response<Product[]> parseNetworkResponse(NetworkResponse response) {
         String message = new String(response.data, StandardCharsets.UTF_8);
         Logger.getLogger("a").info(message);
         if (response.statusCode != 200) {
             return Response.error(new NetworkError(new Exception(message)));
         }
-        Stand[] data = gson.fromJson(message, Stand[].class);
+        Product[] data = gson.fromJson(message, Product[].class);
         return Response.success(data, null);
     }
 }

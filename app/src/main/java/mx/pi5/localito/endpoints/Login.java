@@ -17,7 +17,7 @@ import mx.pi5.localito.ApiRequest;
 public class Login extends ApiRequest<String> {
 
     public Login(Response.Listener<String> listener, @Nullable Response.ErrorListener errorListener) {
-        super("/token", Method.POST, listener, errorListener);
+        super("token", Method.POST, listener, errorListener);
     }
 
     @Override

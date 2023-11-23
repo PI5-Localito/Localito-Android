@@ -35,5 +35,9 @@
             android:name=".activity.CategoryStands"
             android:exported="false"
             />
+        <activity
+            android:name=".activity.ProductosActivity"
+            android:exported="false"
+            />
     </application>
 </manifest>
