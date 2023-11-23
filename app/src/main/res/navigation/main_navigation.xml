@@ -11,7 +11,13 @@
         android:label="@string/stands"
         tools:layout="@layout/fragment_stands"
         app:route="stands"
-
+        />
+    <fragment
+        android:id="@+id/orders"
+        android:name="mx.pi5.localito.fragment.Orders"
+        android:label="@string/order"
+        app:route="orders"
+        tools:layout="@layout/fragment_categories"
         />
     <fragment
         android:id="@+id/categories"
