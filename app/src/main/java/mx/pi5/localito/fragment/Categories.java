@@ -2,11 +2,13 @@ package mx.pi5.localito.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -32,9 +34,9 @@ public class Categories extends Fragment {
         binding = FragmentCategoriesBinding.inflate(inflater, container, false);
         list.add(new Category("Comida", R.mipmap.comida));
         list.add(new Category("Herramientas", R.mipmap.herramientas));
-        list.add(new Category("Moda", ""));
-        list.add(new Category("Servicios", ""));
-        list.add(new Category("Mascotas", ""));
+        list.add(new Category("Moda", R.mipmap.moda));
+        list.add(new Category("Servicios", R.mipmap.servicios));
+        list.add(new Category("Mascotas", R.mipmap.mascotas));
         binding.categoriesList.setAdapter(new CategoriesAdapter(list));
         return binding.getRoot();
     }

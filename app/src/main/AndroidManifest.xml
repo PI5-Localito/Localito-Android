@@ -31,5 +31,9 @@
             android:name=".activity.LoginActivity"
             android:exported="false"
             />
+        <activity
+            android:name=".activity.CategoryStands"
+            android:exported="false"
+            />
     </application>
 </manifest>

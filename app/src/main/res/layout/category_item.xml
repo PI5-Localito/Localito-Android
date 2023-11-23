@@ -16,11 +16,11 @@
         >
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="100dp"
+
             android:scaleType="centerCrop"
             android:src="@drawable/logo_foreground"
             android:contentDescription="@string/product_image"
-            android:layout_gravity="fill"
             android:id="@+id/categ_image"
             />
         <LinearLayout

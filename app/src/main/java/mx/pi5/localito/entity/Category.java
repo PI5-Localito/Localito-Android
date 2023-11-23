@@ -1,10 +1,10 @@
 package mx.pi5.localito.entity;
 
 public class Category {
-    public Category(String name, String imageUri) {
+    public Category(String name, int imageUri) {
         this.imageUri = imageUri;
         this.name = name;
     }
     public String name;
-    public String imageUri;
+    public int imageUri;
 }
