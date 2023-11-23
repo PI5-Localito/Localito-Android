@@ -17,7 +17,6 @@ import mx.pi5.localito.entity.Stand;
 class ViewHolder extends RecyclerView.ViewHolder {
     public ViewHolder(View view) {
         super(view);
-
     }
 }
 
@@ -31,14 +30,16 @@ public class StandAdapter extends RecyclerView.Adapter<ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-            .inflate(R.layout.stand_item, parent, false);
-        return new ViewHolder(view);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.stand_item, parent, false);
+        // StandItemBinding binding = StandItemBinding.inflate(
+        //     LayoutInflater.from(parent.getContext()),
+        //     parent, false
+        // );
+        return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
     }
 
     @Override

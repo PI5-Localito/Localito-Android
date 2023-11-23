@@ -1,5 +1,7 @@
 package mx.pi5.localito.endpoints;
 
+import androidx.annotation.Nullable;
+
 import com.android.volley.NetworkError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.Response;
@@ -11,15 +13,14 @@ import java.util.logging.Logger;
 import mx.pi5.localito.ApiRequest;
 import mx.pi5.localito.entity.Stand;
 
-abstract public class GetStands extends ApiRequest<Stand[]> {
+public class GetStands extends ApiRequest<Stand[]> {
     private final Gson gson = new Gson();
-    public GetStands() {
-        super("/stands", Method.GET);
+    public GetStands(Response.Listener<Stand[]> listener, @Nullable Response.ErrorListener errorListener) {
+        super("/stands", Method.GET, listener, errorListener);
     }
 
     @Override
     protected Response<Stand[]> parseNetworkResponse(NetworkResponse response) {
-        Logger.getLogger("Moment").info("Owned");
         String message = new String(response.data, StandardCharsets.UTF_8);
         if (response.statusCode != 200) {
             return Response.error(new NetworkError(new Exception(message)));

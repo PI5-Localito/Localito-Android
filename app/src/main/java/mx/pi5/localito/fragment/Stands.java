@@ -9,6 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
@@ -21,12 +25,9 @@ import mx.pi5.localito.service.Client;
 
 public class Stands extends Fragment {
     protected FragmentStandsBinding binding;
+    protected List<Stand> stands = new ArrayList<>();
 
     public Stands() { }
-
-    public static Stands newInstance() {
-        return new Stands();
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,15 +38,23 @@ public class Stands extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentStandsBinding.inflate(inflater, container, false);
-        Client.getInstance(this.getContext()).getQueue().add(new GetStands() {
-            @Override
-            protected void deliverResponse(Stand[] response) {
-                List<Stand> stands = Arrays.asList(response);
-                binding.standsList.setAdapter(new StandAdapter(stands));
-            }
-        });
-        Client.getInstance(null).getQueue().start();
+        stands.add(new Stand());
+        stands.add(new Stand());
+        stands.add(new Stand());
+        // Client client = Client.getInstance(this.getContext());
 
+        // client.getQueue().add(new GetStands(response -> {
+        //     List<Stand> data = Arrays.asList(response);
+        //     stands.clear();
+        //     stands.addAll(data);
+        //     binding.standsList.setAdapter(new StandAdapter(stands));
+        // }, error -> Snackbar.make(
+        //     binding.getRoot(),
+        //     error.getMessage(),
+        //     BaseTransientBottomBar.LENGTH_SHORT)
+        //     .show() )
+        // );
+        // client.getQueue().start();
         return binding.getRoot();
     }
 }
