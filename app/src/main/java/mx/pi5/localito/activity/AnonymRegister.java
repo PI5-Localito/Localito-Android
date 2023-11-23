@@ -44,7 +44,9 @@ public class AnonymRegister extends AppCompatActivity {
         setupClickableCheckBox(ckbTerms, R.string.terms_text, R.string.terms_title, "Terms");
         CheckBox ckbPolicy = findViewById(R.id.ckbPolicy);
         setupClickableCheckBox(ckbPolicy, R.string.policy_text, R.string.policy_title, "Policy");
-        b.
+        b.btnRegister.setOnClickListener(view -> {
+
+        });
     }
 
     // Opciones del menú superior
