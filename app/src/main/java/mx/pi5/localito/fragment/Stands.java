@@ -9,10 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.logging.Logger;
 
 import mx.pi5.localito.adapter.StandAdapter;
 import mx.pi5.localito.databinding.FragmentStandsBinding;
@@ -32,18 +31,20 @@ public class Stands extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Client.getInstance(this.getContext()).getQueue().add(new GetStands() {
-            @Override
-            protected void deliverResponse(Stand[] response) {
-                ArrayList<Stand> stands = Array
-            }
-        });
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding = FragmentStandsBinding.inflate(inflater, container, false);
+        Client.getInstance(this.getContext()).getQueue().add(new GetStands() {
+            @Override
+            protected void deliverResponse(Stand[] response) {
+                List<Stand> stands = Arrays.asList(response);
+                binding.standsList.setAdapter(new StandAdapter(stands));
+            }
+        });
+        Client.getInstance(null).getQueue().start();
 
         return binding.getRoot();
     }

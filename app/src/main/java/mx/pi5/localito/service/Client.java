@@ -12,6 +12,7 @@ import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 
 import java.io.File;
+import java.util.logging.Logger;
 
 public class Client {
     private static Client instance = null;

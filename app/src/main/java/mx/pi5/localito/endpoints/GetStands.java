@@ -7,6 +7,7 @@ import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 
 import java.nio.charset.StandardCharsets;
+import java.util.logging.Logger;
 
 import mx.pi5.localito.ApiRequest;
 import mx.pi5.localito.entity.Stand;
@@ -19,6 +20,7 @@ abstract public class GetStands extends ApiRequest<Stand[]> {
 
     @Override
     protected Response<Stand[]> parseNetworkResponse(NetworkResponse response) {
+        Logger.getLogger("Moment").info("Owned");
         String message = new String(response.data, StandardCharsets.UTF_8);
         if (response.statusCode != 200) {
             return Response.error(new NetworkError(new Exception(message)));
