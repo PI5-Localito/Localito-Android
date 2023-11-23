@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 import mx.pi5.localito.service.Auth;
 
 abstract public class ApiRequest<T> extends Request<T> {
-    static public final String URL = "http://192.168.0.103:8000/api";
+    static public final String URL = "http://192.168.44.191:8000/api";
     protected Response.Listener<T> listener;
 
     public ApiRequest(String path, int method, Response.Listener<T> listener, @Nullable Response.ErrorListener errorListener) {

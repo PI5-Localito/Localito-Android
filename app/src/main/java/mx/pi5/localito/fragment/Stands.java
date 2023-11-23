@@ -1,21 +1,18 @@
 package mx.pi5.localito.fragment;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Logger;
 
 import mx.pi5.localito.adapter.StandAdapter;
 import mx.pi5.localito.databinding.FragmentStandsBinding;
@@ -41,20 +38,20 @@ public class Stands extends Fragment {
         stands.add(new Stand());
         stands.add(new Stand());
         stands.add(new Stand());
-        // Client client = Client.getInstance(this.getContext());
+        Client client = Client.getInstance(this.getContext());
 
-        // client.getQueue().add(new GetStands(response -> {
-        //     List<Stand> data = Arrays.asList(response);
-        //     stands.clear();
-        //     stands.addAll(data);
-        //     binding.standsList.setAdapter(new StandAdapter(stands));
-        // }, error -> Snackbar.make(
-        //     binding.getRoot(),
-        //     error.getMessage(),
-        //     BaseTransientBottomBar.LENGTH_SHORT)
-        //     .show() )
-        // );
-        // client.getQueue().start();
+        client.getQueue().add(new GetStands(response -> {
+            List<Stand> data = Arrays.asList(response);
+            stands.clear();
+            stands.addAll(data);
+            binding.standsList.setAdapter(new StandAdapter(stands));
+        }, error -> Snackbar.make(
+            binding.getRoot(),
+            error.getMessage(),
+            Snackbar.LENGTH_SHORT)
+            .show() )
+        );
+        client.getQueue().start();
         return binding.getRoot();
     }
 }

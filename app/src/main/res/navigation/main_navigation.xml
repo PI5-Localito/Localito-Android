@@ -20,4 +20,11 @@
         app:route="categories"
         tools:layout="@layout/fragment_categories"
         />
+    <fragment
+        android:id="@+id/more"
+        android:name="mx.pi5.localito.fragment.More"
+        android:label="@string/more"
+        app:route="more"
+        tools:layout="@layout/fragment_more"
+        />
 </navigation>

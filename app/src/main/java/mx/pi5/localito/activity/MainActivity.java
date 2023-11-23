@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import mx.pi5.localito.AuthorizedActivity;
 import mx.pi5.localito.R;
 import mx.pi5.localito.databinding.ActivityMainBinding;
+import mx.pi5.localito.service.Client;
 
 public class MainActivity extends AuthorizedActivity {
     ActivityMainBinding b;
@@ -39,6 +40,8 @@ public class MainActivity extends AuthorizedActivity {
         }
 
         controller.navigate(route);
+        Client client = Client.getInstance(this);
+        client.getQueue().stop();
 
         return true;
     }
