@@ -1,0 +1,106 @@
+<html>
+    <body>
+        <h1>Términos y Condiciones de Localito App</h1>
+
+        <p>Fecha de última actualización: 17 de Nov 2023</p>
+
+        <h2>Introducción</h2>
+            <p>
+                Bienvenido a <b>Localito</b>, una aplicación dedicada al m-commerce (comercio móvil) diseñada para promover y publicar negocios
+                locales y sus productos y servicios. Estos términos y condiciones rigen el uso de la aplicación y están directamente
+                relacionados con nuestra política de privacidad. Al utilizar la aplicación, aceptas estos términos.
+            </p>
+
+        <h2>Definiciones</h2>
+            <dd>
+                <b>Nosotros</b> como la organización responsable del desarrollo de Localito App.
+                <b>Usted</b> como usuario destino de la aplicación.
+            </dd>
+
+        <h2>Uso de la Aplicación</h2>
+            <ol type="1">
+
+                <li><h3>Requisitos de Elegibilidad</h3>
+                    <ol type="a">
+                        <li><p><b>Edad Mínima</b>: La aplicación está disponible para usuarios a partir de los 13 años.
+                            Se recomienda precaución para usuarios menores, y se espera que aquellos menores de edad vayan
+                            acompañados o envíen a un adulto de confianza.</p></li>
+                        <li><p><b>Residencia o Ubicación Geográfica</b>: Inicialmente, la aplicación está destinada a la República
+                            Mexicana, ajustándose a sus leyes. Se planea expandir a Estados Unidos y luego al resto del mundo.
+                            Los filtros de venta se basan en la proximidad geográfica.</p></li>
+                    </ol>
+                </li>
+
+                <li><h3>Capacidad legal</h3>
+                    <p>Los usuarios deben tener la capacidad legal para aceptar y cumplir con los términos del servicio.
+                        Se espera que no tengan restricciones legales relevantes.</p>
+                </li>
+
+                <li><h3>Otros criterios específicos</h3>
+                    <p>La aplicación está destinada tanto a compradores como a vendedores. Los vendedores deben
+                        proporcionar datos adicionales sobre su negocio.</p>
+                </li>
+
+                <li><h3>Contenido del Usuario</h3>
+                    <p>Los usuarios son responsables de su contenido. Se prohíbe contenido inapropiado, con consecuencias
+                        detalladas y un procedimiento para denuncias.</p>
+                </li>
+            </ol>
+
+        <h2>Cuentas de Usuario</h2>
+            <dd>Al descargar la aplicación, los usuarios pueden registrar una cuenta nueva. Las contraseñas y otros datos sensibles
+                se almacenan de forma segura y no son accesibles por terceros. El usuario es responsable de la actividad de su cuenta.</dd>
+
+        <h2>Propiedad Intelectual</h2>
+            <ol type="1">
+
+                <li>
+                    <p><b>Derechos del Usuario: </b>
+                        Los usuarios retienen los derechos de propiedad intelectual sobre el contenido que crean y comparten.</p>
+                </li>
+
+                <li>
+                    <p><b>Licencia de Usuario a Aplicación: </b>
+                        Los usuarios otorgan una licencia no exclusiva a la aplicación para utilizar su contenido con el fin de mejorar los servicios.</p>
+                </li>
+
+                <li>
+                    <p><b>Derechos de Propiedad Intelectual de la Aplicación: </b>
+                        Localito y sus elementos son propiedad exclusiva de la aplicación o de terceros con licencia.</p>
+                </li>
+            </ol>
+
+        <h2>Responsabilidades de la Aplicación</h2>
+        <ol type="1">
+            <li><h3>Privacidad</h3>
+                <p>La aplicación almacena datos personales y de negocios, excluyendo el INE (identificación expedida por el Instituto Nacional Electoral).
+                    Localito App no comparte datos con terceros y solo los desarrolladores tienen acceso.</p>
+            </li>
+
+            <li><h3>Modificaciones y Terminación</h3>
+                <p>Localito se reserva el derecho de censurar o eliminar contenido inapropiado sin previo aviso.
+                    Cada eliminación de contenido cuenta como un 'Strike'.
+                    El décimo Strike puede resultar en la eliminación de la cuenta.</p>
+            </li>
+
+            <li><h3>Limitación de Responsabilidad</h3>
+                <p>Localito puede ayudar en la recuperación de contraseñas y parte del contenido, pero no garantiza
+                    la recuperación completa debido a procesos de respaldo y limpieza de datos.</p>
+            </li>
+
+            <li><h3>Ley Aplicable y Resolución de Disputas</h3>
+                <p>Todas las disputas legales se ajustarán a la legislación federal de los Estados Unidos Mexicanos.</p>
+            </li>
+        </ol>
+
+
+        <h2>Cambios en los Términos y Condiciones</h2>
+        <dd>Los cambios se notificarán a los usuarios a través de la aplicación y la Play Store.</dd>
+
+        <h2>Contacto</h2>
+        <dd>Para preguntas y problemas, contáctanos a través de localito@app.com.</dd>
+
+        <p>Estos Términos y Condiciones están diseñados para garantizar una experiencia segura y justa para todos los usuarios de Localito App.
+            Al aceptar estos términos, te comprometes a cumplir con las normas y políticas establecidas para el uso de la aplicación.</p>
+    </body>
+</html>

@@ -56,6 +56,11 @@ public class LoginActivity extends AppCompatActivity {
             Client.getInstance(this).getQueue().add(request);
             Client.getInstance(this).getQueue().start();
         });
+
+        b.btnRegister.setOnClickListener(view -> {
+            Intent intent = new Intent(this, AnonymRegister.class);
+            startActivity(intent);
+        });
     }
 
     public void snackResponse(VolleyError error) {

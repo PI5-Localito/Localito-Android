@@ -1,0 +1,68 @@
+<html>
+    <body>
+        <h1>Política de Privacidad de Localito App</h1>
+
+        <p>Fecha de última actualización: 17 de Nov 2023</p>
+
+        <h2>Introducción</h2>
+            <p>
+                La presente Política de Privacidad detalla cómo <b>Localito</b> ("nosotros", "nuestro" o "Localito") recopila, utiliza y protege
+                la información personal proporcionada por los usuarios de la aplicación móvil "Localito".
+            </p>
+
+            <ol type="I">
+
+                <li><h3>Información Recopilada</h3>
+                    <p>Para registrar una cuenta en Localito, los usuarios deben proporcionar datos personales, incluyendo información
+                        identificativa (nombre, dirección) y de contacto (correo electrónico, número de teléfono). Además, se solicita acceso
+                        a las imágenes del dispositivo para permitir a los vendedores subir fotos de sus productos.</p>
+                </li>
+
+                <li><h3>Uso de la Información</h3>
+                    <p>La información personal recopilada se utilizará para:</p>
+                    <ol type="a">
+                        <li><p>Facilitar el registro y acceso a la aplicación.</p></li>
+                        <li><p>Garantizar el correcto funcionamiento de Localito.</p></li>
+                        <li><p>Mantener la relación de prestación de servicios entre Localito y el usuario.</p></li>
+                        <li><p>Gestionar, administrar, informar, prestar y mejorar el servicio.</p></li>
+                    </ol>
+                </li>
+
+                <li><h3>Comunicaciones Electrónicas</h3>
+                    <p>La dirección de correo electrónico proporcionada por el usuario podrá utilizarse para enviar boletines informativos y
+                        comunicaciones comerciales relacionadas con promociones y/o publicidad de Localito. Estas comunicaciones electrónicas
+                        se enviarán únicamente si el usuario ha otorgado su consentimiento expreso para recibirlas.</p>
+                </li>
+
+                <li><h3>Compartir Información con Terceros</h3>
+                    <p>Localito no compartirá la información personal de los usuarios con terceros, excepto en casos en que sea necesario
+                        para el funcionamiento de la aplicación (por ejemplo, facilitar la comunicación entre vendedores y compradores).</p>
+                </li>
+
+                <li><h3>Seguridad de la Información</h3>
+                    <p>Localito implementará medidas de seguridad razonables para proteger la información personal
+                        de los usuarios contra accesos no autorizados o divulgación.</p>
+                </li>
+
+                <li><h3>Consentimiento del Usuario</h3>
+                    <p>Al utilizar la aplicación Localito, el usuario acepta la recopilación y uso de su información personal
+                        de acuerdo con esta Política de Privacidad.</p>
+                </li>
+
+                <li><h3>Destinatarios</h3>
+                    <p>Los datos no se comunicarán a ningún tercero ajeno a Localito, salvo obligación legal o previa solicitud del consentimiento
+                        del Usuario. Localito podrá dar acceso o transmitir los datos personales facilitados por el Usuario a terceros proveedores
+                        de servicios con los que haya suscrito acuerdos de encargo de tratamiento de datos.</p>
+                </li>
+
+                <li><h3>Cambios en la Política de Privacidad</h3>
+                    <p>Esta Política de Privacidad puede ser actualizada ocasionalmente. Se recomienda a los usuarios revisar regularmente
+                        esta página para estar informados sobre cualquier cambio.</p>
+                </li>
+
+                <li><h3>Contacto</h3>
+                    <p> Si tienes preguntas o inquietudes sobre esta Política de Privacidad, contáctanos a través de localito@app.com. </p>
+                </li>
+            </ol>
+    </body>
+</html>

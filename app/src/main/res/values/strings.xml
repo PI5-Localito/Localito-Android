@@ -14,4 +14,17 @@
     <string name="terms_and_conditions">Terminos y condiciones</string>
     <string name="privacy">Privacidad</string>
     <string name="logout">Cerrar session</string>
+    <string name="stand_title">Ropa americana</string>
+    <string name="stand_description">Venedemos de todo lo que necesite en su dia a dia ropa moderna..</string>
+    <string name="product_image_title">Texto secundario</string>
+    <string name="product_title">Pantalones de mezclilla</string>
+    <string name="product_description">Pantalones americanos de la mejor calidad</string>
+    <string name="product_price">$ 250</string>
+    <string name="product_button_order">Ordenar</string>
+    <string name="product_button_available">Disponible</string>
+
+    <string name="terms_text">He leído y acepto los</string>
+    <string name="policy_text">He leído y acepto la</string>
+    <string name="terms_title">Términos y Condiciones</string>
+    <string name="policy_title">Política de Privacidad</string>
 </resources>

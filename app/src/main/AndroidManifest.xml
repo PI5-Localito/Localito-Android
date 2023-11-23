@@ -39,5 +39,9 @@
             android:name=".activity.ProductosActivity"
             android:exported="false"
             />
+        <activity
+            android:name=".activity.AnonymRegister"
+            android:exported="false"
+            />
     </application>
 </manifest>
