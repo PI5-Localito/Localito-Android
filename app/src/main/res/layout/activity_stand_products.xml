@@ -32,6 +32,14 @@
                 android:text="DESCRIPCION"
                 style="@style/TextAppearance.Material3.BodyLarge"
                 />
+            <Button
+                android:id="@+id/seeMoreButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ver mas"
+                android:visibility="visible"
+                android:layout_gravity="end"
+                style="?attr/borderlessButtonStyle" />
         </LinearLayout>
         <ImageView
             android:layout_width="100dp"
@@ -40,6 +48,7 @@
             android:layout_gravity="center"
             android:layout_weight="0"
             />
+
     </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
