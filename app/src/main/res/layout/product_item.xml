@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
@@ -35,7 +36,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Titulo del porducto"
+                android:text="Titulo del producto"
                 style="@style/TextAppearance.Material3.TitleMedium"
                 android:id="@+id/title"
                 />
@@ -43,7 +44,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="DESCRIPCION"
+                android:text="Descripcion del producto"
                 android:id="@+id/info"
                 style="@style/TextAppearance.Material3.BodySmall"
                 android:ellipsize="end"
@@ -53,18 +54,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PRECIO"
+                android:text="$ Precio"
                 android:layout_gravity="start"
                 android:id="@+id/price"
-                style="@style/TextAppearance.Material3.LabelSmall"
+                style="@style/TextAppearance.Material3.BodySmall"
                 />
+
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
                 android:layout_gravity="end"
-                android:text="ordenar"
-                />
+                android:layout_marginEnd="8dp"
+                android:text="Ordenar"
+                app:backgroundTint="@color/seed" />
 
         </LinearLayout>
 
