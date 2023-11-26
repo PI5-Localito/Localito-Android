@@ -30,5 +30,4 @@
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
         <item name="fontFamily">@font/montserrat_medium</item>
     </style>
-
 </resources>

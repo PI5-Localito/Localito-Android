@@ -10,7 +10,9 @@
     android:orientation="vertical"
     >
     <mx.pi5.localito.component.AppBar
+        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:collapse="false"
         />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

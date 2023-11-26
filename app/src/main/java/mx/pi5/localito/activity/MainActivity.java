@@ -11,7 +11,6 @@ import mx.pi5.localito.databinding.ActivityMainBinding;
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,13 +1,16 @@
 package mx.pi5.localito.component;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
+import android.view.Gravity;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.material.appbar.AppBarLayout;
 
+import java.util.Objects;
 
 import javax.inject.Inject;
 
@@ -18,13 +21,23 @@ import mx.pi5.localito.databinding.ComponentAppbarBinding;
 @ViewScoped
 public class AppBar extends AppBarLayout {
     ComponentAppbarBinding binding;
+    boolean isCollapsed;
 
     @Inject
     public AppBar(@NonNull Context context, AttributeSet attrs) {
         super(context);
         inflate(context, R.layout.component_appbar, this);
         binding = ComponentAppbarBinding.bind(this);
-        attrs.getAttributeBooleanValue('Centered');
+        TypedArray styledAttributes = context.obtainStyledAttributes(attrs, R.styleable.AppBar);
+
+        isCollapsed = styledAttributes.getBoolean(R.styleable.AppBar_collapse, false);
+        if (isCollapsed) collapseAppbar();
     }
 
+    public void collapseAppbar() {
+        Toolbar.LayoutParams params = (Toolbar.LayoutParams) binding.brand.getLayoutParams();
+        params.gravity = Gravity.CENTER;
+        binding.avatar.setVisibility(INVISIBLE);
+        binding.locationContainer.setVisibility(INVISIBLE);
+    }
 }

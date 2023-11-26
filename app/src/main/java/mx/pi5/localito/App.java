@@ -12,6 +12,7 @@ import dagger.hilt.components.SingletonComponent;
 
 @HiltAndroidApp
 public class App extends Application {
+    static public final String API_URL = "http://192.168.0.36:8000";
     @Override
     public void onCreate() {
         super.onCreate();
