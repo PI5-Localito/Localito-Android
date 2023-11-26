@@ -6,50 +6,61 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
+        android:layout_height="wrap_content">
+
+        <!-- Imagen como fondo -->
+        <ImageView
+            android:id="@+id/standImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/logo_foreground"
+            android:scaleType="centerCrop"
+            android:alpha="0.5"
+        />
+
+        <!-- Contenido de texto y botón encima de la imagen -->
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="30dp"
-            android:orientation="vertical"
-            android:layout_weight="1"
-            >
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TITULO"
-                style="@style/TextAppearance.Material3.TitleLarge"
-                />
-            <TextView
-                android:id="@+id/info"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="DESCRIPCION"
-                style="@style/TextAppearance.Material3.BodyLarge"
-                />
-            <Button
-                android:id="@+id/seeMoreButton"
+            android:orientation="horizontal">
+
+            <!-- Tu contenido de texto y botón -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ver mas"
-                android:visibility="visible"
-                android:layout_gravity="end"
-                style="?attr/borderlessButtonStyle" />
-        </LinearLayout>
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:backgroundTint="@color/seed"
-            android:layout_gravity="center"
-            android:layout_weight="0"
-            />
+                android:padding="30dp"
+                android:orientation="vertical"
+                android:layout_weight="1">
 
-    </LinearLayout>
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TITULO"
+                    style="@style/TextAppearance.Material3.TitleLarge"
+                    />
+
+                <TextView
+                    android:id="@+id/info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="DESCRIPCION"
+                    style="@style/TextAppearance.Material3.BodyLarge"
+                    />
+
+                <Button
+                    android:id="@+id/seeMoreButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ver mas"
+                    android:visibility="visible"
+                    android:layout_gravity="end"
+                    style="?attr/borderlessButtonStyle" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
