@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <com.google.android.material.appbar.MaterialToolbar
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/brand"
+                android:contentDescription="Brand"
+                />
+
+            <ImageButton
+                android:id="@+id/avatar"
+                android:visibility="invisible"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="Avatar"
+                android:background="@drawable/avatar_background"
+                android:layout_gravity="end"
+                android:layout_marginEnd="20dp"
+                />
+        </com.google.android.material.appbar.MaterialToolbar>
+        <LinearLayout
+            android:id="@+id/ubication"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            >
+            <ImageView
+                android:adjustViewBounds="true"
+                android:layout_width="wrap_content"
+                android:layout_height="10dp"
+                android:src="@drawable/icon_location"
+                android:backgroundTint="@color/material_dynamic_neutral70"
+                />
+            <TextView
+                android:id="@+id/city_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="2sp"
+                android:textSize="8sp"
+                android:text="N/A"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+</com.google.android.material.appbar.AppBarLayout>
