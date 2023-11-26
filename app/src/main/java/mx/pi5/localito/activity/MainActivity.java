@@ -13,7 +13,6 @@ import mx.pi5.localito.service.Client;
 
 public class MainActivity extends AuthorizedActivity {
     ActivityMainBinding b;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,12 +20,10 @@ public class MainActivity extends AuthorizedActivity {
         setContentView(b.getRoot());
         b.navigation.setOnItemSelectedListener(this::navItemSelect);
     }
-
     private NavController getNavController() {
         NavHostFragment hostFragment =  b.container.getFragment();
         return hostFragment.getNavController();
     }
-
     private boolean navItemSelect(MenuItem item) {
         if (item.isChecked()) return false;
         NavController controller = getNavController();
@@ -38,7 +35,6 @@ public class MainActivity extends AuthorizedActivity {
         } else if (item.getItemId() == R.id.more) {
             route = "more";
         }
-
         controller.navigate(route);
         Client client = Client.getInstance(this);
         client.getQueue().stop();
