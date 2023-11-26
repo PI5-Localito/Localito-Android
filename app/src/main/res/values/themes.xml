@@ -28,12 +28,7 @@
         <item name="colorOnSurfaceInverse">@color/md_theme_light_inverseOnSurface</item>
         <item name="colorSurfaceInverse">@color/md_theme_light_inverseSurface</item>
         <item name="colorPrimaryInverse">@color/md_theme_light_inversePrimary</item>
-    </style>
-
-    <style name="TextAppearance.AppCompat.Title" parent="">
         <item name="fontFamily">@font/montserrat_medium</item>
     </style>
-    <style name="TextAppearance.AppCompat">
 
-    </style>
 </resources>

@@ -17,7 +17,6 @@
         android:layout_weight="1"
         android:name="androidx.navigation.fragment.NavHostFragment"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/main_navigation"
         />
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navigation"
@@ -25,6 +24,5 @@
         android:layout_gravity="bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:menu="@menu/bottombar_items"
         />
 </LinearLayout>
