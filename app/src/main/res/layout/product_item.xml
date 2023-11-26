@@ -6,15 +6,16 @@
     android:clickable="true"
     android:focusable="true"
     android:checkable="false"
+    android:layout_marginVertical="10dp"
     >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         >
         <ImageView
             android:id="@+id/image"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxHeight="20dp"
             android:maxWidth="20dp"
@@ -26,15 +27,15 @@
             />
         <LinearLayout
             android:layout_weight="3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp"
+            android:padding="16dp"
             >
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TITULO"
+                android:text="Titulo del porducto"
                 style="@style/TextAppearance.Material3.TitleMedium"
                 android:id="@+id/title"
                 />
@@ -48,14 +49,24 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PRECIO"
-                android:layout_gravity="end"
+                android:layout_gravity="start"
                 android:id="@+id/price"
                 style="@style/TextAppearance.Material3.LabelSmall"
                 />
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="end"
+                android:text="ordenar"
+                />
+
         </LinearLayout>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>
