@@ -8,9 +8,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/logo_foreground"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo_foreground"
+        android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Localito"
         tools:targetApi="31"
@@ -26,22 +26,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity
-            android:name=".activity.LoginActivity"
-            android:exported="false"
-            />
-        <activity
-            android:name=".activity.CategoryStands"
-            android:exported="false"
-            />
-        <activity
-            android:name=".activity.ProductosActivity"
-            android:exported="false"
-            />
-        <activity
-            android:name=".activity.AnonymRegister"
-            android:exported="false"
-            />
     </application>
 </manifest>
