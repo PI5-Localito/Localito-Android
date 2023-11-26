@@ -43,6 +43,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             Client.getInstance(null).getImageLoader()
                 .get(ApiRequest.BASE + product.image, listener);
 
+            binding.title.setText(product.name);
+            binding.info.setText(product.info);
+            binding.price.setText("$" + product.price);
         }
     }
 
