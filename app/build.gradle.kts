@@ -1,7 +1,11 @@
+val API_URI by extra("127.0.0.1:8000")
+
 plugins {
     id("com.android.application")
     id("androidx.navigation.safeargs") version "2.7.4"
+    id("com.google.dagger.hilt.android")
 }
+
 
 android {
     namespace = "mx.pi5.localito"
@@ -16,8 +20,6 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -43,9 +45,11 @@ dependencies {
     implementation("androidx.navigation:navigation-ui:2.7.4")
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.android.volley:volley:1.2.1")
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("com.google.dagger:hilt-android:2.44")
+    annotationProcessor("com.google.dagger:hilt-android-compiler:2.44")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
+
