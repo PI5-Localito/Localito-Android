@@ -6,6 +6,7 @@ import mx.pi5.localito.databinding.FrontPageBinding;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class FrontPage extends AppCompatActivity {
 
@@ -18,18 +19,12 @@ public class FrontPage extends AppCompatActivity {
         b = FrontPageBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
 
-        b.btnRegister.setOnClickListener(view -> {startView("AnonymRegister");});
-        b.btnLogin.setOnClickListener(view -> {startView("AnonymLogin");});
+        b.btnRegister.setOnClickListener(view -> startView(AnonymRegister.class));
+        b.btnLogin.setOnClickListener(view -> startView(LoginActivity.class));
     }
 
-    public void startView(String nombre){
-        try {
-            String packageName = getPackageName();
-            String className = packageName + ".auth." + nombre;
-            i = new Intent(FrontPage.this, Class.forName(className));
-            startActivity(i);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+    private void startView(Class<?> clazz) {
+        Intent intent = new Intent(FrontPage.this, clazz);
+        startActivity(intent);
     }
 }

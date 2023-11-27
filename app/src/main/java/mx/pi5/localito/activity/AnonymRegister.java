@@ -105,6 +105,11 @@ public class AnonymRegister extends AppCompatActivity {
             });
             client.getQueue().start();
         });
+        b.btnToLogin.setOnClickListener(v -> {
+            Intent i = new Intent(this, LoginActivity.class);
+            startActivity(i);
+            this.finish();
+    });
     }
 
     // Opciones del menú superior
