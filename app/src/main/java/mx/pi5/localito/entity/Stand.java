@@ -7,4 +7,5 @@ public class Stand {
     public String info;
     public int city;
     public String category;
+    public String image;
 }

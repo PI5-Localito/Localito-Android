@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import mx.pi5.localito.activity.LoginActivity;
+import mx.pi5.localito.activity.FrontPage;
 import mx.pi5.localito.service.Auth;
 
 abstract public class AuthorizedActivity extends AppCompatActivity {
@@ -22,9 +22,9 @@ abstract public class AuthorizedActivity extends AppCompatActivity {
         boolean hasToken = token != null;
         if (hasToken) return;
 
-        Intent login = new Intent(this, LoginActivity.class);
-        login.setFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(login);
+        Intent frontPage = new Intent(this, FrontPage.class);
+        frontPage.setFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(frontPage);
         finish();
     }
 }

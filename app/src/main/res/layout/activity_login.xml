@@ -14,11 +14,25 @@
         android:orientation="vertical"
         >
 
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/days_one"
+            android:text="Localito"
+            android:textColor="#F26E18"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/input_email"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="50dp"
             android:hint="Correo/teléfono"
             app:endIconMode="clear_text">
 
@@ -32,7 +46,7 @@
             android:id="@+id/input_password"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="165dp"
+            android:layout_marginTop="30dp"
             android:hint="Contraseña"
             app:endIconMode="password_toggle"
             app:errorContentDescription="content_description_start_icon">
@@ -48,7 +62,7 @@
             android:id="@+id/btn_login"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="100dp"
             android:backgroundTint="@color/seed"
             android:text="Iniciar Sesión"
             android:textColor="@color/md_theme_light_onPrimary"

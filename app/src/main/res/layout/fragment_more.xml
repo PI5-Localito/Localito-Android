@@ -7,36 +7,43 @@
     android:layout_height="match_parent"
     tools:context=".fragment.More"
     >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
+
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
         <Button
             android:id="@+id/logout"
-            android:layout_width="match_parent"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            app:icon="@drawable/baseline_logout_24"
+            android:layout_marginTop="30dp"
             android:text="@string/logout"
-            style="@style/Widget.Material3.Button.IconButton"
-            />
+            app:icon="@drawable/baseline_logout_24" />
+
         <Button
-            android:layout_width="match_parent"
+            android:id="@+id/privacy"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="350dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            app:icon="@drawable/baseline_privacy_tip_24"
-            android:text="@string/privacy"
-            style="@style/Widget.Material3.Button.IconButton"
-            />
+            android:text="@string/policy_title"
+            app:icon="@drawable/baseline_privacy_tip_24" />
+
         <Button
-            android:layout_width="match_parent"
+            android:id="@+id/terms"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="350dp"
+            android:layout_marginTop="10dp"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            app:icon="@drawable/baseline_balance_24"
-            android:text="@string/terms_and_conditions"
-            style="@style/Widget.Material3.Button.IconButton"
-            />
+            android:text="@string/terms_title"
+            app:icon="@drawable/baseline_balance_24" />
 
     </LinearLayout>
 </FrameLayout>
