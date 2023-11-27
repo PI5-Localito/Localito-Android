@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="10dp"
-    android:clickable="true"
-    android:focusable="true"
-    android:checkable="false"
-    style="@style/Widget.Material3.CardView.Elevated"
-    >
-    <LinearLayout
-        android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:clickable="true"
+        android:id="@+id/container"
+        android:focusable="true"
+        android:checkable="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="false"
+        style="@style/Widget.Material3.CardView.Elevated"
         >
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mensaje"
-            style="@style/TextAppearance.Material3.BodyLarge"
-            android:id="@+id/body"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fecha"
-            android:id="@+id/date"/>
-    </LinearLayout>
-</com.google.android.material.card.MaterialCardView>
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mensaje"
+                style="@style/TextAppearance.Material3.BodyLarge"
+                android:id="@+id/body"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha"
+                android:id="@+id/date"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</RelativeLayout>

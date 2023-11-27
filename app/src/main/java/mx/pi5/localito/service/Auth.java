@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 
 import java.util.Arrays;
 import java.util.Base64;
+import java.util.logging.Logger;
 
 import mx.pi5.localito.entity.User;
 
@@ -33,5 +34,15 @@ public class Auth {
     public Auth setToken(String token) {
         sharedPreferences.edit().putString("token", token).apply();
         return this;
+    }
+
+    public User getData() {
+        String token = getToken();
+        String[] parts = token.split("\\.", 3);
+        String data = parts[1];
+        byte[] bts = Base64.getDecoder().decode(data);
+        Gson gson = new Gson();
+        Logger.getLogger("si").info(new String(bts));
+        return gson.fromJson(new String(bts), User.class);
     }
 }
