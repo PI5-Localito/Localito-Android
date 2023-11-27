@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import android.widget.RelativeLayout;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +21,7 @@ import mx.pi5.localito.databinding.MessageItemBinding;
 import mx.pi5.localito.databinding.ProductItemBinding;
 import mx.pi5.localito.entity.Message;
 import mx.pi5.localito.entity.Product;
+import mx.pi5.localito.service.Auth;
 import mx.pi5.localito.service.Client;
 
 public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
@@ -43,6 +46,14 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             String created_at = dateFormat(message.message_timestamp);
             b.date.setText(created_at);
             b.getRoot().setVisibility(View.VISIBLE);
+
+            if(message.user_from == Auth.getInstance(null).getData().id){
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) b.container.getLayoutParams();
+                params.addRule(RelativeLayout.ALIGN_PARENT_END);
+            }else {
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) b.container.getLayoutParams();
+                params.addRule(RelativeLayout.ALIGN_PARENT_START);
+            }
         }
     }
     public String dateFormat(String fechaOriginal){
