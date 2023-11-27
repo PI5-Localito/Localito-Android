@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -32,33 +33,34 @@ public class Stands extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = FragmentStandsBinding.inflate(inflater, container, false);
-        Client client = Client.getInstance(requireContext());
+        return binding.getRoot();
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         adapter = new StandAdapter(new ArrayList<>(), requireContext());
         binding.standsList.setLayoutManager(new LinearLayoutManager(requireContext()));
         binding.standsList.setAdapter(adapter);
-
-        binding.standsProgressBar.setVisibility(View.VISIBLE);
-
+        showProgressBar(true);
         loadData();
-
-        return binding.getRoot();
     }
 
     private void loadData() {
         Client client = Client.getInstance(requireContext());
         client.getQueue().add(new GetStands(response -> {
             List<Stand> data = Arrays.asList(response);
-
             adapter.updateData(data);
-
-            binding.standsProgressBar.setVisibility(View.GONE);
+            showProgressBar(false);
         }, error -> {
             Snackbar.make(binding.getRoot(), error.getMessage(), Snackbar.LENGTH_SHORT).show();
-
-            binding.standsProgressBar.setVisibility(View.GONE);
+            showProgressBar(false);
         }));
 
         client.getQueue().start();
+    }
+
+    private void showProgressBar(boolean show) {
+        binding.standsProgressBar.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 }
