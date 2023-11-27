@@ -1,15 +1,18 @@
 package mx.pi5.localito.activity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.volley.toolbox.ImageLoader;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import mx.pi5.localito.ApiRequest;
 import mx.pi5.localito.AuthorizedActivity;
 import mx.pi5.localito.adapter.ProductAdapter;
 import mx.pi5.localito.databinding.ActivityStandProductsBinding;
@@ -40,6 +43,8 @@ public class ProductosActivity extends AuthorizedActivity {
             //binding.info.setText(response.info);
             binding.title.setText(response.stand_name);
             handleDescriptionText(response.info);
+            ImageLoader.ImageListener listener = ImageLoader.getImageListener(binding.standImage, 0, 0);
+            client.getImageLoader() .get(ApiRequest.BASE + "/" + response.image, listener);
         }, error -> Snackbar.make(binding.getRoot(), error.getMessage(), Snackbar.LENGTH_SHORT).show() ));
         client.getQueue().add(new GetProducts(id, response -> {
             List<Product> products = Arrays.asList(response);
