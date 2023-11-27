@@ -30,6 +30,30 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estado de la orden"
+                android:id="@+id/orderState"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:ellipsize="end"
+                android:maxLines="1"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fecha de pedido"
+                android:id="@+id/orderCreated"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:ellipsize="end"
+                android:maxLines="1"
+                />
+            <ImageView
+                android:id="@+id/orderIconState"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/baseline_pending_24"
+                android:layout_gravity="end"/>
         </LinearLayout>
 
     </LinearLayout>
