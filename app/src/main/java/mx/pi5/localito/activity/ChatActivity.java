@@ -45,6 +45,9 @@ public class ChatActivity extends AuthorizedActivity {
                 Date date = new Date();
                 SimpleDateFormat simple = new SimpleDateFormat("Y-m-d h:m:s");
                 message.message_timestamp = simple.format(date);
+                //(message.order_id);
+                binding.idOrder.setTitle(message.order_id);
+
                 messages.add(message);
                 binding.messagesList.setAdapter(new ChatAdapter(messages, this));
                 binding.etMensaje.setText("");

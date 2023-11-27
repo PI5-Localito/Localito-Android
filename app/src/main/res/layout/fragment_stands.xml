@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.Stands"
+    android:orientation="vertical"
     >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@drawable/localito_logo"
+        android:layout_gravity="start"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,4 +30,4 @@
         android:layout_gravity="center"
         android:visibility="gone" />
 
-</FrameLayout>
+</LinearLayout>

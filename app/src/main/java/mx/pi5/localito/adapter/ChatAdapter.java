@@ -1,13 +1,18 @@
 package mx.pi5.localito.adapter;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import mx.pi5.localito.databinding.MessageItemBinding;
@@ -35,12 +40,26 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             this.message = message;
             Client client = Client.getInstance(null);
             b.body.setText(message.body);
-            b.date.setText(message.message_timestamp);
+            String created_at = dateFormat(message.message_timestamp);
+            b.date.setText(created_at);
             b.getRoot().setVisibility(View.VISIBLE);
-
         }
     }
+    public String dateFormat(String fechaOriginal){
+        SimpleDateFormat formatoOriginal = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
+        Date fechaDate = null;
+        try {
+            fechaDate = formatoOriginal.parse(fechaOriginal);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        SimpleDateFormat formatoDeseado = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String fechaFormateada = formatoDeseado.format(fechaDate);
+
+        return fechaFormateada;
+    }
     protected List<Message> messages;
 
     public ChatAdapter(List<Message> messages, Context ctx) {
@@ -75,3 +94,6 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         Client.getInstance(null).getQueue().start();
     }
 }
+
+
+//[{"id":15,"buyer_id":20,"seller_id":4,"stand_id":3,"date":"2023-11-27 03:11:26","state":"PENDING"},{"id":16,"buyer_id":20,"seller_id":4,"stand_id":3,"date":"2023-11-27 03:11:47","state":"PENDING"},{"id":18,"buyer_id":20,"seller_id":5,"stand_id":4,"date":"2023-11-27 04:11:13","state":"PENDING"},{"id":19,"buyer_id":20,"seller_id":6,"stand_id":6,"date":"2023-11-27 04:11:18","state":"PENDING"},{"id":20,"buyer_id":20,"seller_id":7,"stand_id":7,"date":"2023-11-27 04:11:31","state":"PENDING"},{"id":21,"buyer_id":20,"seller_id":5,"stand_id":4,"date":"2023-11-27 04:11:33","state":"PENDING"},{"id":24,"buyer_id":20,"seller_id":9,"stand_id":8,"date":"2023-11-27 05:11:30","state":"FINISHED"},{"id":25,"buyer_id":20,"seller_id":9,"stand_id":8,"date":"2023-11-27 05:11:32","state":"REJECTED"}]

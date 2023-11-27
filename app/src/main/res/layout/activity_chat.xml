@@ -8,6 +8,20 @@
     android:orientation="vertical"
     tools:context=".activity.ChatActivity"
     >
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/md_theme_light_inversePrimary">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/idOrder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:titleTextColor="@color/cardview_light_background"
+            app:title="Chat con el vendedor" />
+
+    </com.google.android.material.appbar.AppBarLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,18 +32,21 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="15dp"
         android:orientation="horizontal">
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Mensaje"
+            android:hint="Escribe un mensaje..."
             android:id="@+id/etMensaje"/>
-        <Button
+        <ImageButton
+            android:id="@+id/btnEnviar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnEnviar"
-            android:text="Enviar"/>
+            android:backgroundTint="@color/seed"
+            android:src="@drawable/baseline_send_24"
+            android:contentDescription="Enviar" />
     </LinearLayout>
 
 </LinearLayout>
