@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
@@ -25,13 +26,16 @@ public class AppBar extends AppBarLayout {
 
     @Inject
     public AppBar(@NonNull Context context, AttributeSet attrs) {
-        super(context);
+        super(context, attrs);
         inflate(context, R.layout.component_appbar, this);
-        binding = ComponentAppbarBinding.inflate();
-        inflate()
         TypedArray styledAttributes = context.obtainStyledAttributes(attrs, R.styleable.AppBar);
-
         isCollapsed = styledAttributes.getBoolean(R.styleable.AppBar_collapse, false);
+    }
+
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        binding = ComponentAppbarBinding.bind(this);
         if (isCollapsed) collapseAppbar();
     }
 

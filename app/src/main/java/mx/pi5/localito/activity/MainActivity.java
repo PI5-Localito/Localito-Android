@@ -1,19 +1,27 @@
 package mx.pi5.localito.activity;
 
 import android.Manifest;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.logging.Logger;
 
@@ -31,26 +39,51 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     ApiClient client;
     @Inject
-    WifiManager manager;
+    WifiManager wifiManager;
+    @Inject
+    LocationManager locationManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        checkPermissions();
         getLocation();
     }
 
-    public Task<Location> getLocation() {
-        FusedLocationProviderClient locationProviderClient;
-        locationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+    protected checkPermissions() {
+        int locationPermission = checkPermission(Manifest.permission.ACCESS_COARSE_LOCATION);
+
         if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[] {Manifest.permission.ACCESS_COARSE_LOCATION}, 102);
+            requestPermissions(new String[] {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.INTERNET}, 102);
             return null;
         }
-        return locationProviderClient.getLastLocation()
-            .addOnSuccessListener(this::onLocationProvided)
-            .addOnFailureListener(f -> Logger.getLogger("SI").info(f.getMessage()));
+
+    }
+
+    public Location getLocation() {
+        if (checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[] {Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.INTERNET}, 102);
+            return null;
+        }
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            MaterialAlertDialogBuilder dialog = new MaterialAlertDialogBuilder(this)
+                .setCancelable(false)
+                .setTitle("Ubicacion necesaria")
+                .setMessage("Se necesita el servicio de ubicacion para una mejor experiencia")
+                .setNeutralButton("Reintentar", null);
+            AlertDialog alert = dialog.show();
+            alert.getButton(DialogInterface.BUTTON_NEUTRAL)
+                .setOnClickListener(v -> {
+                    if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                        alert.dismiss();
+                        return;
+                    }
+                    Toast.makeText(this, "No esta habilitado la localizacion", Toast.LENGTH_SHORT).show();
+                });
+        }
+        return locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
     }
 
     public void onLocationProvided(Location location) {
@@ -77,6 +110,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        client.requestQueue.start();
+        client.requestQueue.stop();
     }
 }
