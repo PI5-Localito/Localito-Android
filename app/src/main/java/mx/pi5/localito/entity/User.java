@@ -1,14 +1,14 @@
 package mx.pi5.localito.entity;
 
 public class User {
-    private int id;
-    private String email;
-    private String password;
-    private String phone;
-    private String name;
-    private String last_name;
+    public int id;
+    public String email;
+    public String password;
+    public String phone;
+    public String name;
+    public String last_name;
 
-    private String avatar;
+    public String avatar;
 
     public User(String email, String password, String phone, String name, String last_name) {
         this.email = email;

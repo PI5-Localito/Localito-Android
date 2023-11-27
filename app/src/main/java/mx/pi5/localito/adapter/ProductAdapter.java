@@ -11,14 +11,21 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.gson.Gson;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
 import mx.pi5.localito.ApiRequest;
 import mx.pi5.localito.databinding.ProductItemBinding;
+import mx.pi5.localito.endpoints.Orders;
+import mx.pi5.localito.entity.Order;
 import mx.pi5.localito.entity.Product;
 import mx.pi5.localito.service.Client;
 
@@ -60,6 +67,33 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             binding.title.setText(product.name);
             binding.info.setText(product.info);
             binding.price.setText("$" + product.price);
+
+            binding.btnOrder.setOnClickListener(view -> {
+                Order order = new Order();
+
+                int stand_id = product.stand_id;
+                int productId = product.id;
+                order.buyer_id = 1;
+                order.seller_id = 20;
+                order.stand_id = product.stand_id;
+
+                client.getQueue().add(new Orders(stand_id, response -> {
+                    Toast.makeText(ctx, "Orden Creada", Toast.LENGTH_SHORT).show();
+                }, error -> Snackbar.make( binding.getRoot(), error.getMessage(), Snackbar.LENGTH_SHORT).show()) {
+                    public String getBodyContentType() {
+                        return "application/json";
+                    }
+
+                    @Override
+                    public byte[] getBody() throws AuthFailureError {
+                        Gson gson = new Gson();
+                        HashMap<String, String> map = new HashMap<>();
+                        map.put("productId", String.valueOf(productId));
+                        map.put("order", gson.toJson(order));
+                        return gson.toJson(map).getBytes();
+                    }
+                });
+            });
         }
     }
 

@@ -3,6 +3,13 @@ package mx.pi5.localito.service;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+
+import java.util.Arrays;
+import java.util.Base64;
+
+import mx.pi5.localito.entity.User;
+
 public class Auth {
     static public Auth instance = null;
     private SharedPreferences sharedPreferences;

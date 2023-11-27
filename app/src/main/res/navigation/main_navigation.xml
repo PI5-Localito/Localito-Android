@@ -27,4 +27,11 @@
         app:route="more"
         tools:layout="@layout/fragment_more"
         />
+    <fragment
+        android:id="@+id/orders"
+        android:name="mx.pi5.localito.fragment.Orders"
+        android:label="@string/order"
+        app:route="orders"
+        tools:layout="@layout/fragment_orders"
+        />
 </navigation>
