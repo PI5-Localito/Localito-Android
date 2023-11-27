@@ -27,7 +27,8 @@ public class AppBar extends AppBarLayout {
     public AppBar(@NonNull Context context, AttributeSet attrs) {
         super(context);
         inflate(context, R.layout.component_appbar, this);
-        binding = ComponentAppbarBinding.bind(this);
+        binding = ComponentAppbarBinding.inflate();
+        inflate()
         TypedArray styledAttributes = context.obtainStyledAttributes(attrs, R.styleable.AppBar);
 
         isCollapsed = styledAttributes.getBoolean(R.styleable.AppBar_collapse, false);

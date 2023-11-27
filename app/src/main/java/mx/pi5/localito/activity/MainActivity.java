@@ -3,6 +3,8 @@ package mx.pi5.localito.activity;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.Task;
+
+import java.util.logging.Logger;
 
 import javax.inject.Inject;
 
@@ -24,9 +28,10 @@ import mx.pi5.localito.service.ApiClient;
 @AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
-
     @Inject
     ApiClient client;
+    @Inject
+    WifiManager manager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,10 +48,14 @@ public class MainActivity extends AppCompatActivity {
             requestPermissions(new String[] {Manifest.permission.ACCESS_COARSE_LOCATION}, 102);
             return null;
         }
-        return locationProviderClient.getLastLocation().addOnSuccessListener(this::onLocationProvided);
+        return locationProviderClient.getLastLocation()
+            .addOnSuccessListener(this::onLocationProvided)
+            .addOnFailureListener(f -> Logger.getLogger("SI").info(f.getMessage()));
     }
 
     public void onLocationProvided(Location location) {
+        if (location == null) return;
+
         double[] position = new double[] {
             location.getLatitude(),
             location.getLongitude()

@@ -10,7 +10,7 @@
     android:orientation="vertical"
     >
     <mx.pi5.localito.component.AppBar
-        android:id="@+id/appbar"
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:collapse="false"
