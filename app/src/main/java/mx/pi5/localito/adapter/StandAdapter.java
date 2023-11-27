@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,14 +17,79 @@ import com.android.volley.toolbox.ImageLoader;
 import java.util.List;
 
 import mx.pi5.localito.ApiRequest;
+import mx.pi5.localito.R;
 import mx.pi5.localito.activity.ProductosActivity;
 import mx.pi5.localito.databinding.StandItemBinding;
 import mx.pi5.localito.entity.Stand;
 import mx.pi5.localito.service.Client;
 
 
-public class StandAdapter extends RecyclerView.Adapter<StandAdapter.ViewHolder> {
-    class ViewHolder extends RecyclerView.ViewHolder {
+public class StandAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+    private static final int VIEW_TYPE_ITEM = 0;
+    private static final int VIEW_TYPE_LOADING = 1;
+
+    protected List<Stand> stands;
+    private boolean isLoading = false;
+    private Context context;
+
+    public StandAdapter(List<Stand> stands, Context context) {
+        this.stands = stands;
+        this.context = context;
+    }
+
+    public void setLoading(boolean loading) {
+        isLoading = loading;
+        notifyDataSetChanged();
+    }
+
+    public void updateData(List<Stand> newData) {
+        stands.clear();
+        stands.addAll(newData);
+        notifyDataSetChanged();
+    }
+
+    @NonNull
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        if (viewType == VIEW_TYPE_ITEM) {
+            StandItemBinding binding = StandItemBinding.inflate(
+                LayoutInflater.from(parent.getContext()),
+                parent, false
+            );
+            return new ViewHolder(binding);
+        } else {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.loading_spinner, parent, false);
+            return new LoadingViewHolder(view);
+        }
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if (holder instanceof ViewHolder) {
+            Stand stand = stands.get(position);
+            ((ViewHolder) holder).bind(stand);
+        } else if (holder instanceof LoadingViewHolder) {
+            LoadingViewHolder loadingViewHolder = (LoadingViewHolder) holder;
+            loadingViewHolder.progressBar.setVisibility(isLoading ? View.VISIBLE : View.GONE);
+        }
+    }
+
+    @Override
+    public int getItemCount() {
+        return stands.size() + (isLoading ? 1 : 0);
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        if (position < stands.size() && stands.get(position) != null) {
+            return VIEW_TYPE_ITEM;
+        } else {
+            return VIEW_TYPE_LOADING;
+        }
+    }
+
+    static class ViewHolder extends RecyclerView.ViewHolder {
         Stand stand;
         StandItemBinding binding;
         Context ctx;
@@ -66,30 +132,14 @@ public class StandAdapter extends RecyclerView.Adapter<StandAdapter.ViewHolder> 
         }
     }
 
-    protected List<Stand> stands;
+    static class LoadingViewHolder extends RecyclerView.ViewHolder {
+        ProgressBar progressBar;
 
-    public StandAdapter(List<Stand> stands) {
-        this.stands = stands;
+        LoadingViewHolder(View itemView) {
+            super(itemView);
+            progressBar = itemView.findViewById(R.id.progressBar);
+        }
     }
 
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        StandItemBinding binding = StandItemBinding.inflate(
-            LayoutInflater.from(parent.getContext()),
-            parent, false
-        );
-        return new ViewHolder(binding);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Stand stand = stands.get(position);
-        holder.bind(stand);
-    }
-
-    @Override
-    public int getItemCount() {
-        return stands.size();
-    }
+    //java.io.InterruptedIOException: thread interrupted
 }
