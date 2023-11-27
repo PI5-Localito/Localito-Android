@@ -10,13 +10,13 @@ import com.android.volley.VolleyError;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.inject.Inject;
 
+import mx.pi5.localito.service.ApiClient;
 import mx.pi5.localito.service.AuthManager;
 
 
@@ -34,7 +34,7 @@ abstract public class ApiJsonRequest<T, RT> extends Request<RT> {
         Response.Listener<RT> listener,
         @Nullable Response.ErrorListener errorListener
     ) {
-        super(method, App.API_URL + path, errorListener);
+        super(method, ApiClient.URL + path, errorListener);
         this.listener = listener;
     }
 
@@ -43,7 +43,6 @@ abstract public class ApiJsonRequest<T, RT> extends Request<RT> {
         listener.onResponse(response);
     }
 
-    @Inject
     @Override
     public Map<String, String> getHeaders() throws AuthFailureError {
         HashMap<String, String> headers = new HashMap<>(super.getHeaders());

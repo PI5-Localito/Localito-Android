@@ -23,6 +23,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext;
 
 @Singleton
 public class ApiClient {
+        static public final String URL = "http://192.168.0.36:8000";
         public RequestQueue requestQueue;
         public ImageLoader imageLoader;
 
