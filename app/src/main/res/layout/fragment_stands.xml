@@ -13,4 +13,12 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:id="@+id/stands_list"
         />
+
+    <ProgressBar
+        android:id="@+id/standsProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
 </FrameLayout>
