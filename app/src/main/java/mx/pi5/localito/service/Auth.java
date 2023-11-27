@@ -34,13 +34,4 @@ public class Auth {
         sharedPreferences.edit().putString("token", token).apply();
         return this;
     }
-
-    public User getData() {
-        String token = getToken();
-        String[] parts = token.split(".", 3);
-        String data = parts[1];
-        byte[] bts = Base64.getDecoder().decode(data);
-        Gson gson = new Gson();
-        return gson.fromJson(Arrays.toString(bts), User.class);
-    }
 }
