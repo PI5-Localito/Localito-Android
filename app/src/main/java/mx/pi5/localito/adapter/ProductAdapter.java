@@ -18,6 +18,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -68,12 +69,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
             binding.price.setText("$" + product.price);
 
             binding.btnOrder.setOnClickListener(view -> {
-                Client client = Client.getInstance(ctx);
-
                 Order order = new Order();
 
-                int buyer =
                 int stand_id = product.stand_id;
+                int productId = product.id;
                 order.buyer_id = 1;
                 order.seller_id = 20;
                 order.stand_id = product.stand_id;
@@ -88,7 +87,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
                     @Override
                     public byte[] getBody() throws AuthFailureError {
                         Gson gson = new Gson();
-                        return gson.toJson(order).getBytes();
+                        HashMap<String, String> map = new HashMap<>();
+                        map.put("productId", String.valueOf(productId));
+                        map.put("order", gson.toJson(order));
+                        return gson.toJson(map).getBytes();
                     }
                 });
             });
