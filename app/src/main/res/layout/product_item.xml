@@ -66,6 +66,7 @@
                 android:layout_gravity="end"
                 android:layout_marginEnd="8dp"
                 android:text="Ordenar"
+                android:id="@+id/btnOrder"
                 app:backgroundTint="@color/seed" />
 
         </LinearLayout>
