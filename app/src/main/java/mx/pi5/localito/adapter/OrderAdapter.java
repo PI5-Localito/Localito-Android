@@ -17,6 +17,7 @@ import java.util.List;
 
 import mx.pi5.localito.ApiRequest;
 import mx.pi5.localito.R;
+import mx.pi5.localito.activity.ChatActivity;
 import mx.pi5.localito.activity.ProductosActivity;
 import mx.pi5.localito.databinding.OrderItemBinding;
 import mx.pi5.localito.entity.Order;
@@ -40,8 +41,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
 
         protected void onClick(View view) {
             assert order != null;
-            Intent intent = new Intent(ctx, ProductosActivity.class);
-            intent.putExtra("id", order.id);
+            Intent intent = new Intent(ctx, ChatActivity.class);
+            intent.putExtra("orderId", order.id);
+            intent.putExtra("buyerId", order.buyer_id);
             ctx.startActivity(intent);
         }
 

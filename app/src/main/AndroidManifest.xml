@@ -47,5 +47,9 @@
             android:name=".activity.FrontPage"
             android:exported="false"
             />
+        <activity
+            android:name=".activity.ChatActivity"
+            android:exported="false"
+            />
     </application>
 </manifest>
