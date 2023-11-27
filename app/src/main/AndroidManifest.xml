@@ -43,5 +43,9 @@
             android:name=".activity.AnonymRegister"
             android:exported="false"
             />
+        <activity
+            android:name=".activity.FrontPage"
+            android:exported="false"
+            />
     </application>
 </manifest>
