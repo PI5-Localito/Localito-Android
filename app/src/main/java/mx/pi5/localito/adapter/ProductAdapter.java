@@ -2,16 +2,20 @@ package mx.pi5.localito.adapter;
 
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageLoader;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import mx.pi5.localito.ApiRequest;
 import mx.pi5.localito.databinding.ProductItemBinding;
@@ -38,10 +42,20 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         public void bind(Product product) {
             this.product = product;
             binding.getRoot().setVisibility(View.VISIBLE);
-            ImageLoader.ImageListener listener = ImageLoader.getImageListener(binding.image, 0, 0);
+            Client client = Client.getInstance(null);
+            ImageLoader loader = client.getImageLoader();
+            ImageLoader.ImageListener listener = new ImageLoader.ImageListener() {
+                @Override
+                public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate) {
+                    binding.image.setImageBitmap(response.getBitmap());
+                }
 
-            Client.getInstance(null).getImageLoader()
-                .get(ApiRequest.BASE + product.image, listener);
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(binding.getRoot().getContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
+            };
+            loader.get(ApiRequest.BASE + "/" + product.image, listener);
 
             binding.title.setText(product.name);
             binding.info.setText(product.info);

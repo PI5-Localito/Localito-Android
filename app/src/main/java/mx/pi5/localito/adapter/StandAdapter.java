@@ -10,11 +10,16 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+
 import java.util.List;
 
+import mx.pi5.localito.ApiRequest;
 import mx.pi5.localito.activity.ProductosActivity;
 import mx.pi5.localito.databinding.StandItemBinding;
 import mx.pi5.localito.entity.Stand;
+import mx.pi5.localito.service.Client;
 
 
 public class StandAdapter extends RecyclerView.Adapter<StandAdapter.ViewHolder> {
@@ -43,6 +48,21 @@ public class StandAdapter extends RecyclerView.Adapter<StandAdapter.ViewHolder> 
             binding.info.setText(stand.info);
             binding.getRoot().setOnClickListener(this::onClick);
             binding.getRoot().setVisibility(View.VISIBLE);
+
+            Client client = Client.getInstance(null);
+            ImageLoader loader = client.getImageLoader();
+            ImageLoader.ImageListener listener = new ImageLoader.ImageListener() {
+                @Override
+                public void onResponse(ImageLoader.ImageContainer response, boolean isImmediate) {
+                    binding.image.setImageBitmap(response.getBitmap());
+                }
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Toast.makeText(binding.getRoot().getContext(), "Error", Toast.LENGTH_SHORT).show();
+                }
+            };
+            loader.get(ApiRequest.BASE + "/" + stand.image, listener);
         }
     }
 

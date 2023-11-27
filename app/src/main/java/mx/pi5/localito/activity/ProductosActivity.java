@@ -20,7 +20,6 @@ import mx.pi5.localito.service.Client;
 
 public class ProductosActivity extends AuthorizedActivity {
     protected ActivityStandProductsBinding binding;
-    protected List<Product> stands = new ArrayList<>();
     int id;
 
     @Override
