@@ -46,7 +46,7 @@ dependencies {
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.android.volley:volley:1.2.1")
     implementation("com.google.dagger:hilt-android:2.44")
-    annotationProcessor("com.google.dagger:hilt-android-compiler:2.44")
+    annotationProcessor("com.google.dagger:hilt-android-compiler:2.49")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
